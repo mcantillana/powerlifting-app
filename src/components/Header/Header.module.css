@@ -24,3 +24,12 @@
     font-weight: bold;
     transition: all 0.6s ease;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .itemLinks{
+        display:none;
+    }
+    .list{
+        width:250px;
+    }
+}

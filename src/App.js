@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import './App.css';
-import Aux from './hoc/Aux/Aux';
-import Header from './components/Header/Header';
+import Layout from './hoc/Layout/Layout';
 
 class App extends Component{
   render(){
     return(
-      <Aux>
-        <Header/>
-      </Aux>
+      <div>
+        <Layout>
+          <h1>Destino</h1>
+        </Layout>
+      </div>
     )
   }
 }

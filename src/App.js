@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
+
+import Layout from './hoc/Layout/Layout';
 //import axios from './axios-weather';
 class App extends Component{
   render(){
@@ -12,6 +14,7 @@ class App extends Component{
     });*/
     return(
       <div> 
+        <Layout/>
       </div>
     )
   }

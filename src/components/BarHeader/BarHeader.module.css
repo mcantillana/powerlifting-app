@@ -1,0 +1,9 @@
+.Root{
+    flex-grow: 1;
+}
+.MenuButton {
+    margin-right: 2px;
+}
+.Title{
+    flex-grow: 1;
+}

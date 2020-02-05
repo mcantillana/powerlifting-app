@@ -39,7 +39,7 @@ class BarHeader extends Component {
     render(){
         return (
             <div className={classes.BarHeader}>
-                <AppBar position="static">
+                {/*<AppBar position="static">
                     <Toolbar>
                     <IconButton edge="start" 
                         className={clsx(classes.MenuButton, this.state.open && classes.hide)} 
@@ -53,8 +53,8 @@ class BarHeader extends Component {
                     </Typography>
                     <Button color="inherit">Login</Button>
                     </Toolbar>
-                </AppBar>
-                <Drawer
+                </AppBar>*/}
+                {/*<Drawer
                     className={classes.Drawer}
                     variant="persistent"
                     anchor="left"
@@ -86,7 +86,7 @@ class BarHeader extends Component {
                         </ListItem>
                     ))}
                     </List>
-                </Drawer>
+                    </Drawer>*/}
                 <main
                     className={clsx(classes.Content, {
                     [classes.ContentShift]: this.state.open,

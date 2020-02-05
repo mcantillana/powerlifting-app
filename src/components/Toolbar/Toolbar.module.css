@@ -1,0 +1,9 @@
+.Toolbar header { 
+    background-color: #057A22;
+}
+.MenuButton {
+    margin-right: 2px;
+}
+.Title{
+    flex-grow: 1;
+}

@@ -14,7 +14,6 @@ import MailIcon from '@material-ui/icons/Mail';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Drawer from '@material-ui/core/Drawer';
 import clsx from 'clsx';
 
@@ -43,20 +42,20 @@ class BarHeader extends Component {
                 <AppBar position="static">
                     <Toolbar>
                     <IconButton edge="start" 
-                        className={clsx(classes.menuButton, this.state.open && classes.hide)} 
+                        className={clsx(classes.MenuButton, this.state.open && classes.hide)} 
                         color="inherit" 
                         aria-label="menu"
                         onClick={this.handleDrawerOpen}  >
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" className={classes.Title}>
-                        News
+                        05K4R1N
                     </Typography>
                     <Button color="inherit">Login</Button>
                     </Toolbar>
                 </AppBar>
                 <Drawer
-                    className={classes.drawer}
+                    className={classes.Drawer}
                     variant="persistent"
                     anchor="left"
                     open={this.state.open}
@@ -64,9 +63,9 @@ class BarHeader extends Component {
                     paper: classes.drawerPaper,
                     }}
                 >
-                    <div className={classes.drawerHeader}>
+                    <div className={classes.DrawerHeader}>
                         <IconButton onClick={this.handleDrawerClose}>
-                            {this.state.theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                            <ChevronLeftIcon className={classes.LeftIcon} />
                         </IconButton>
                     </div>
                     <Divider />
@@ -88,6 +87,36 @@ class BarHeader extends Component {
                     ))}
                     </List>
                 </Drawer>
+                <main
+                    className={clsx(classes.Content, {
+                    [classes.ContentShift]: this.state.open,
+                    })}
+                >
+                    <div className={classes.drawerHeader} />
+                    <Typography paragraph>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                    ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
+                    facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+                    gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
+                    donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+                    Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
+                    imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
+                    arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+                    donec massa sapien faucibus et molestie ac.
+                    </Typography>
+                    <Typography paragraph>
+                    Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
+                    facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
+                    tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
+                    consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
+                    vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
+                    hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
+                    tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
+                    nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
+                    accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+                    </Typography>
+                </main>
             </div>
         )
     }

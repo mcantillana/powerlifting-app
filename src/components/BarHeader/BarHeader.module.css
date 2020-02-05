@@ -7,3 +7,31 @@
 .Title{
     flex-grow: 1;
 }
+.Drawer{
+    width: 240px;
+    flexShrink: 0;
+}
+.Drawer div{
+    background:#057A22;
+    color: #FFF;
+}
+.DrawerHeader{
+    display: flex;
+    padding: 0px 8px;
+    min-height: 56px;
+    align-items: center;
+    justify-content: flex-end;
+}
+.LeftIcon{
+    color: #FFFFFF;
+}
+.Content{
+    padding: 24px;
+    flex-grow: 1;
+    transition: margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+    margin-left: 0px;
+}
+.ContentShift{
+    transition: margin 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    margin-left: 200px;
+}

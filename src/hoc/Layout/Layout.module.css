@@ -1,0 +1,10 @@
+.Content{
+    padding: 24px;
+    flex-grow: 1;
+    transition: margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+    margin-left: 0px;
+}
+.ContentShift{
+    transition: margin 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+    margin-left: 200px;
+}

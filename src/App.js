@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 
+import AhorroBuilder from './containers/AhorroBuilder/AhorroBuilder';
+
 import Layout from './hoc/Layout/Layout';
 //import axios from './axios-weather';
 class App extends Component{
@@ -14,7 +16,9 @@ class App extends Component{
     });*/
     return(
       <div> 
-        <Layout/>
+        <Layout>
+          <AhorroBuilder/>
+        </Layout>
       </div>
     )
   }

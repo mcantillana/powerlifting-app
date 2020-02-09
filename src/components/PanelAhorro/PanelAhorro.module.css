@@ -1,0 +1,26 @@
+.PanelAhorro{
+    background: #057A22;
+    width: 65%;
+    color: #FFF;
+    border-radius: 3%;
+    display: block;
+    margin-top: 30px;
+}
+
+.PanelAhorro h3{
+    text-align: right;
+    margin: 35px 20px;
+}
+
+.PanelAhorro p.Monto{
+    text-align: center;
+    font-size: 40px;
+    margin: 50px 0px 35px 0px;
+    padding: 20px 0px;
+}
+.PanelAhorro span{
+    font-weight: bold;
+}
+.PanelAhorro .Duenio{
+    margin: 20px 15px;
+}

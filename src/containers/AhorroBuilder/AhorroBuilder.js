@@ -1,25 +1,32 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
+import Aux from '../../hoc/Aux/Aux';
+
+import PanelAhorro from '../../components/PanelAhorro/PanelAhorro';
 
 class AhorroBuilder extends Component{
     constructor(props){
         super(props);
 
         this.state = {
-            ahorro: 0,
-            numeroCuenta: 0
+            ahorrista: {
+                nombres: "Oscar Rolando",
+                apellidos: "Gamboa Acho",
+                nrodocumento: "7925512",
+                ahorro: {
+                    monto: 0,
+                    movimientos: [],
+                }
+            }
         };
     }
     render(){
         return(
-            <div>
+            <Aux>
                 <Container maxWidth="lg">
-                    <div>
-                        <p>Depositado: x Bs.</p>
-                        <p>Numero de Cuenta: XXXXXXX</p>
-                    </div>
+                    <PanelAhorro alcancia = {this.state.ahorrista}/>
                 </Container>
-            </div>
+            </Aux>
         )
     }
 }

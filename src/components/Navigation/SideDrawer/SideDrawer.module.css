@@ -16,3 +16,6 @@
 .LeftIcon{
     color: #FFFFFF;
 }
+.Drawer .collapseSaving{
+    padding-left: 32px;
+}

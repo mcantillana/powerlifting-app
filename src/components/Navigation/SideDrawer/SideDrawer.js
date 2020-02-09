@@ -10,6 +10,12 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Drawer from '@material-ui/core/Drawer';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 import classes from './SideDrawer.module.css';
 
@@ -39,6 +45,35 @@ const sideDrawer = (props) => {
                     <ListItemIcon><MonetizationOnIcon/></ListItemIcon>
                     <ListItemText primary="Movimientos"/>
                 </ListItem>
+                <ListItem button onClick={props.itemSavingToggleClicked}>
+                    <ListItemIcon>
+                        <MonetizationOnIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Cuenta" />
+                    {props.openItemCollapse ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={props.openItemCollapse} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem button className={classes.collapseSaving}>
+                            <ListItemIcon>
+                                <AddCircleOutlineIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Depositar" />
+                        </ListItem>
+                        <ListItem button className={classes.collapseSaving}>
+                            <ListItemIcon>
+                                <RemoveCircleOutlineIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Retirar" />
+                        </ListItem>
+                        <ListItem button className={classes.collapseSaving}>
+                            <ListItemIcon>
+                                <FormatListNumberedIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Ver Extracto" />
+                        </ListItem>
+                    </List>
+                </Collapse>
             </List>
         </Drawer>
     );

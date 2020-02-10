@@ -46,10 +46,6 @@ const sideDrawer = (props) => {
                         <ListItemIcon><AccountCircleIcon/></ListItemIcon>
                         <ListItemText primary="Mi Perfil"/>
                     </ListItem>
-                    <ListItem button key="Efectivo">
-                        <ListItemIcon><MonetizationOnIcon/></ListItemIcon>
-                        <ListItemText primary="Movimientos"/>
-                    </ListItem>
                     <ListItem button onClick={props.itemSavingToggleClicked}>
                         <ListItemIcon>
                             <MonetizationOnIcon />

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import Aux from '../Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
@@ -43,7 +44,7 @@ class Layout extends Component {
                             itemSavingToggleClicked = {this.handleItemSavingToggle}/>
                 <main
                     className={clsx(classes.Content, {
-                    [classes.ContentShift]: this.state.open,
+                    [classes.ContentShift]: this.state.openSideDrawer,
                     })}
                 >
                     {this.props.children}

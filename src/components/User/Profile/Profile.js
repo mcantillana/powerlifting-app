@@ -1,9 +1,11 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
+import Button from '../../UI/Button/Button';
 import classes from './Profile.module.css';
 
-const profile = () => {
+const profile = (props) => {
+    console.log(props);
     return (
        <div className={classes.Profile}>
            <Grid container
@@ -12,20 +14,20 @@ const profile = () => {
                 alignItems="center"
                 justify="center">
                 <div className={classes.ProfileInfo}>
-                    <Grid container className={classes.ProfileData}
+                    <Grid item container className={classes.ProfileData}
                             xs={12} 
                             sm={6}
                             >
                             <strong>Apellidos:</strong>
                             <p>XXXXXXXXXXXXXXXXXXX</p>
                     </Grid>
-                    <Grid container className={classes.ProfileData}
+                    <Grid item container className={classes.ProfileData}
                             xs={12} 
                             sm={6}>
                         <strong>Nombres:</strong>
                         <p>XXXXXXXXXXXXXXX</p>
                     </Grid>
-                    <Grid container className={classes.ProfileData}
+                    <Grid item container className={classes.ProfileData}
                             xs={12} 
                             sm={6}>
                         <strong>Nro. Documento:</strong>
@@ -33,6 +35,9 @@ const profile = () => {
                     </Grid>
                 </div>
             </Grid>
+            <div className={classes.Buttons}>
+                <Button btnType="ProfileBack">Atras</Button>
+            </div>
        </div>
     )
 }

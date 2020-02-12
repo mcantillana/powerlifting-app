@@ -35,9 +35,13 @@ const profile = (props) => {
                     </Grid>
                 </div>
             </Grid>
-            <div className={classes.Buttons}>
+            <Grid container className={classes.Buttons}
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justify="center">
                 <Button btnType="ProfileBack">Atras</Button>
-            </div>
+            </Grid>
        </div>
     )
 }

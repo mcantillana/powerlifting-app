@@ -4,7 +4,6 @@ import Aux from '../../hoc/Aux/Aux';
 
 import classes from './PanelAhorro.module.css';
 const panelAhorro = (props) => {
-    console.log(props.ahorro);
     return(
         <Aux>
             <Grid container 

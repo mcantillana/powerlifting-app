@@ -1,21 +1,14 @@
-.Profile{
-    margin-top: 30px;
-}
 .ProfileInfo{
-    width:60%;
-    box-shadow: 7px 2px 6px 1px #ccc;
+    width:80%;
 }
-.Profile .ProfileInfo .ProfileData{
+.ProfileInfo .ProfileData{
     margin: 20px auto;
 }
-.Profile .ProfileInfo .ProfileData p{
+.ProfileInfo .ProfileData p{
     margin: 0;
     font-size: 15;
     margin-left: 20px;
 }
-.Profile .ProfileInfo .ProfileData strong{
+.ProfileInfo .ProfileData strong{
     font-size: 18px;
-}
-.Profile .Buttons{
-    margin:20px auto;
 }

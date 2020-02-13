@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ProfileData from '../../components/User/ProfileData/ProfileData';
+import Button from '../../components/UI/Button/Button';
 
 import Grid from '@material-ui/core/Grid';
 import classes from './Profile.module.css';
@@ -16,10 +17,15 @@ class Profile extends Component{
             }
         };
     }
+
+    returnBack = () => {
+        this.props.history.goBack();
+    }
+
     render(){
         return(
             <div className={classes.Profile}>
-                <Grid container
+                <Grid className={classes.Container} container
                         spacing={0}
                         direction="column"
                         alignItems="center"
@@ -32,8 +38,14 @@ class Profile extends Component{
                                                     dataValue={this.state.user[dataKey]} />;
                             });
                         })
-                    };
-                    
+                    }
+                </Grid>
+                <Grid container className={classes.Buttons}
+                    spacing={0}
+                    direction="column"
+                    alignItems="center"
+                    justify="center">
+                    <Button btnType="ProfileBack" clicked={this.returnBack}>Atras</Button>
                 </Grid>
             </div>
         );

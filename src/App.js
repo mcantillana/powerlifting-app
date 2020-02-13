@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {Switch, Route} from 'react-router-dom';
 import AhorroBuilder from './containers/AhorroBuilder/AhorroBuilder';
-import Profile from './components/User/Profile/Profile';
+import Profile from './containers/Profile/Profile';
 
 import Layout from './hoc/Layout/Layout';
 class App extends Component{

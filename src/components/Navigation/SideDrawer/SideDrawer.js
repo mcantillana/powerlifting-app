@@ -67,7 +67,7 @@ const sideDrawer = (props) => {
                                 </ListItemIcon>
                                 <ListItemText primary="Retirar" />
                             </ListItem>
-                            <ListItem button className={classes.collapseSaving}>
+                            <ListItem button className={classes.collapseSaving} component={Link} to="/extracto">
                                 <ListItemIcon>
                                     <FormatListNumberedIcon />
                                 </ListItemIcon>

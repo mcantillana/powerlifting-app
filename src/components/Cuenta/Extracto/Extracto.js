@@ -3,21 +3,20 @@ import React from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-/*import TableContainer from '@material-ui/core/TableContainer';*/
+import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Container from '@material-ui/core/Container';
 
 import classes from './Extracto.module.css';
 
 const extracto = (props) => {
     return(
-        <Container>
+        <TableContainer>
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell className={classes.Header}>Monto</TableCell>
-                        <TableCell className={classes.Header}>Transaccion</TableCell>
+                        <TableCell className={classes.Header} align="center"><span>Monto</span></TableCell>
+                        <TableCell className={classes.Header} align="center"><span>Transaccion</span></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -35,7 +34,7 @@ const extracto = (props) => {
                     </TableRow>
                 </TableBody>
             </Table>
-        </Container>
+        </TableContainer>
     )
 }
 

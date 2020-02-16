@@ -1,0 +1,10 @@
+.Movimiento{
+    width: 35%;
+    margin:0 auto;
+}
+.Movimiento .inputContainer{
+    margin: 20px 0px;
+}
+.Movimiento .inputContainer .input{
+    width: 100%;
+}

@@ -16,8 +16,8 @@ class App extends Component{
           <Switch>
             <Route component={AhorroBuilder} path="/" exact/>
             <Route component={Profile} path="/profile"/>
-            <Route component={Extracto} path="/extracto"/>
-            <Route component={Movimiento} path="/movimiento"/>
+            <Route component={Extracto} path="/extracto/:tipo"/>
+            <Route component={Movimiento} path="/movimiento/:tipo"/>
           </Switch>
         </Layout>
       </div>

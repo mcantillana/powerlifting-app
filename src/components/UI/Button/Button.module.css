@@ -4,11 +4,20 @@
     cursor: pointer;
     margin: 0 auto;
 }
-.Button.ProfileBack{
+.Button.back{
     background: red;
     color: #FFFFFF;
     font-size: 20px;
     font-weight: bold;
     border: none;
     margin:0;
+}
+.Button.submitAhorro{
+    background: #057A22;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    margin: 0;
+    width: 100%;
 }

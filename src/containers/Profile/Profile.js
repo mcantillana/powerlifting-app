@@ -45,7 +45,7 @@ class Profile extends Component{
                     direction="column"
                     alignItems="center"
                     justify="center">
-                    <Button btnType="ProfileBack" clicked={this.returnBack}>Atras</Button>
+                    <Button btnType="back" clicked={this.returnBack}>Atras</Button>
                 </Grid>
             </div>
         );

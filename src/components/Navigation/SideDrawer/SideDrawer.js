@@ -55,13 +55,13 @@ const sideDrawer = (props) => {
                     </ListItem>
                     <Collapse in={props.openItemCollapse} timeout="auto" unmountOnExit>
                         <List component="div" disablePadding>
-                            <ListItem button className={classes.collapseSaving} component={Link} to="/movimiento">
+                            <ListItem button className={classes.collapseSaving} component={Link} to="/movimiento/deposito">
                                 <ListItemIcon>
                                     <AddCircleOutlineIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="Depositar"/>
                             </ListItem>
-                            <ListItem button className={classes.collapseSaving}>
+                            <ListItem button className={classes.collapseSaving} component={Link} to="/movimiento/retiro">
                                 <ListItemIcon>
                                     <RemoveCircleOutlineIcon />
                                 </ListItemIcon>

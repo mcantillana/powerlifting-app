@@ -4,7 +4,6 @@ import Button from '../../UI/Button/Button';
 
 import classes from './Movimiento.module.css';
 const movimiento = (props) =>{
-    console.log(props.match.params.tipo)
     let tipoMovimiento = props.match.params.tipo;
     let retiroMotivo = null;
     if(tipoMovimiento === "retiro"){

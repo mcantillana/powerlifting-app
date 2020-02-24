@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import ProfileData from '../../components/User/ProfileData/ProfileData';
-import Button from '../../components/UI/Button/Button';
+import ProfileData from '../../../components/User/ProfileData/ProfileData';
+import Button from '../../../components/UI/Button/Button';
 
 import Grid from '@material-ui/core/Grid';
 import classes from './Profile.module.css';

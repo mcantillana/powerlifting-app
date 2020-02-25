@@ -23,7 +23,7 @@ class Movimiento extends Component {
         if( tipoDeposito === "retiro" ){
             movimiento.motivo = this.state.motivoRetiro;
         }
-        axios.post('movimientos.json', movimiento)
+        axios.post('movimien    tos.json', movimiento)
             .then(response => {
                 this.props.history.push('/');
             })
@@ -42,9 +42,9 @@ class Movimiento extends Component {
 
     render() {
         let tipoDeposito = this.props.match.params.tipo;
-        let retiroMotivo = null;
+        let reasonMovement = null;
         if(tipoDeposito === "retiro"){
-            retiroMotivo = (
+            reasonMovement = (
                 <div className={classes.inputContainer}>
                     <TextField
                         id="standard-multiline-static"
@@ -62,6 +62,7 @@ class Movimiento extends Component {
                 <form onSubmit={(event) => this.setMoneyAmount(event,tipoDeposito)}>
                     <div className={classes.inputContainer}>
                         <TextField
+                            required
                             className={classes.input}
                             id="standard-number"
                             label="Monto"
@@ -72,7 +73,7 @@ class Movimiento extends Component {
                             onChange={this.amountHandler}
                         />
                     </div>
-                    {retiroMotivo}
+                    {reasonMovement}
                     <Button btnType="submitAhorro">Depositar</Button>
                 </form>
             </div>

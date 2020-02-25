@@ -4,7 +4,7 @@ import {Switch, Route} from 'react-router-dom';
 
 import AhorroBuilder from './containers/AhorroBuilder/AhorroBuilder';
 import Profile from './containers/Account/Profile/Profile';
-import Extracto from './components/Cuenta/Extracto/Extracto';
+import Statement from './containers/Account/Statement/Statement';
 import Movimiento from './containers/Account/Movimiento/Movimiento';
 import Layout from './hoc/Layout/Layout';
 
@@ -16,7 +16,7 @@ class App extends Component{
           <Switch>
             <Route component={AhorroBuilder} path="/" exact/>
             <Route component={Profile} path="/profile"/>
-            <Route component={Extracto} path="/extracto/:tipo"/>
+            <Route component={Statement} path="/statement"/>
             <Route component={Movimiento} path="/movimiento/:tipo"/>
           </Switch>
         </Layout>

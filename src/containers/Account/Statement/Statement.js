@@ -13,32 +13,44 @@ import classes from './Statement.module.css';
 
 class Extracto extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            statements: null
+        }
+    }
     componentDidMount(){
-        
+        axios.get('movimientos.json')
+            .then(response => {
+                this.setState({statements: response.data});
+            });
     }
     render(){
+        let statementsArray = [];
+        for( let key in this.state.statements ){
+            statementsArray.push({
+                id: key,
+                statement: this.state.statements[key]
+            });
+        };
+        let statementsItems =     
+            statementsArray.map((st) => (
+                <TableRow key={st.id}>
+                    <TableCell align="center">{st.statement.tipo}</TableCell>
+                    <TableCell align="center">{st.statement.amount}</TableCell>
+                </TableRow>
+            ));
         return(
             <TableContainer>
                 <Table>
                     <TableHead>
                         <TableRow>
+                            <TableCell className={classes.Header} align="center"><span>Tipo</span></TableCell>
                             <TableCell className={classes.Header} align="center"><span>Monto</span></TableCell>
-                            <TableCell className={classes.Header} align="center"><span>Transaccion</span></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow>
-                            <TableCell align="right">200</TableCell>
-                            <TableCell align="right">Deposito</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell align="right">10</TableCell>
-                            <TableCell align="right">Retiro</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell align="right">330</TableCell>
-                            <TableCell align="right">Deposito</TableCell>
-                        </TableRow>
+                        {statementsItems}
                     </TableBody>
                 </Table>
             </TableContainer>

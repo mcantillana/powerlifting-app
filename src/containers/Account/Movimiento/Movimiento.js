@@ -23,7 +23,7 @@ class Movimiento extends Component {
         if( tipoDeposito === "retiro" ){
             movimiento.motivo = this.state.motivoRetiro;
         }
-        axios.post('movimien    tos.json', movimiento)
+        axios.post('movimientos.json', movimiento)
             .then(response => {
                 this.props.history.push('/');
             })

@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 import axios from '../../../axios';
+import StatementItem from '../../../components/Account/StatementItem/StatementItem';
 import classes from './Statement.module.css';
 
 
@@ -38,20 +39,6 @@ class Extracto extends Component {
                 statement: this.state.statements[key]
             });
         };
-        let statementsItems =     
-            statementsArray.map((st) => (
-                <TableRow key={st.id}>
-                    <TableCell align="center">{st.statement.tipo}</TableCell>
-                    <TableCell align="center">{st.statement.amount}</TableCell>
-                </TableRow>
-            ));
-        if( this.state.loading ){
-            statementsItems = (
-                <TableRow>
-                    <TableCell align="center" colSpan={2}>Cargando...</TableCell>
-                </TableRow>
-            )
-        }
         return(
             <TableContainer>
                 <Table>
@@ -62,7 +49,7 @@ class Extracto extends Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {statementsItems}
+                        <StatementItem statementList = {statementsArray} loader = {this.state.loading}/>
                     </TableBody>
                 </Table>
             </TableContainer>

@@ -16,13 +16,18 @@ class Extracto extends Component {
     constructor(props){
         super(props);
         this.state = {
-            statements: null
+            statements: null,
+            loading: true
         }
     }
     componentDidMount(){
         axios.get('movimientos.json')
             .then(response => {
-                this.setState({statements: response.data});
+                this.setState({
+                    statements: response.data, 
+                    loading: false
+                });
+                
             });
     }
     render(){
@@ -40,6 +45,13 @@ class Extracto extends Component {
                     <TableCell align="center">{st.statement.amount}</TableCell>
                 </TableRow>
             ));
+        if( this.state.loading ){
+            statementsItems = (
+                <TableRow>
+                    <TableCell align="center" colSpan={2}>Cargando...</TableCell>
+                </TableRow>
+            )
+        }
         return(
             <TableContainer>
                 <Table>

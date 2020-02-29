@@ -1,4 +1,6 @@
 import React from 'react';
+
+import loader from '../../../assets/gif/loader.gif';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 
@@ -14,9 +16,18 @@ const statementItem = (props) => {
         if( props.loader ){
             statementsItems = (
                 <TableRow>
-                    <TableCell align="center" colSpan={2}>Cargando...</TableCell>
+                    <TableCell align="center" colSpan={2}>
+                        <img src = {loader} alt="Cargando..." width="60"/>
+                    </TableCell>
                 </TableRow>
-            )
+            );
+        }
+        if( !props.loader && !props.statementList.length ){
+            statementsItems = (
+                <TableRow>
+                    <TableCell align="center" colSpan={2}>No existen depositos</TableCell>
+                </TableRow>
+            );
         }
     return (
         <Aux>

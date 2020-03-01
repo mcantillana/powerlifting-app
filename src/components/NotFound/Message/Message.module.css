@@ -1,0 +1,16 @@
+.Message { 
+    width: 90%;
+    margin: 0 auto;
+}
+.Message .Title {
+    margin: 35px 0;
+}
+.Message .Title h1 {
+    font-size: 85px;
+}
+.Message .Paragraph {
+    margin: 35px 0;
+}
+.Message .Paragraph p{
+    font-size: 40px;
+}

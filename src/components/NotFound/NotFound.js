@@ -1,22 +1,24 @@
 import React from 'react';
 
-import notfound from '../../assets/images/notfound.png';
+import Grid from '@material-ui/core/Grid';
+
+
+import Message from './Message/Message';
+import Image from './Image/Image';
+
 import classes from './NotFound.module.css';
 
-const notFound = (props) => {
+const notFound = () => {
     return (
         <div className={classes.NotFound}>
-            <div className={classes.Title}>
-                <h1>Oops!</h1>
-            </div>
-            <div className={classes.body}>
-                <div className={classes.message}>
-                    <p>Al parecer la pagina que solicitaste no existe o no se encuentra disponible en este momento</p>
-                </div>
-                <div className={classes.image}>
-                    <img src={notfound} alt="Not Found"/>
-                </div>
-            </div>
+            <Grid container spacing={6}>
+                <Grid item xs={12} sm={12} md={6}>
+                    <Message />    
+                </Grid>
+                <Grid item xs={12} sm={12} md={6}>
+                    <Image/>
+                </Grid>
+            </Grid>
         </div>
     );
 }

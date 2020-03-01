@@ -6,6 +6,7 @@ import AhorroBuilder from './containers/AhorroBuilder/AhorroBuilder';
 import Profile from './containers/Account/Profile/Profile';
 import Statement from './containers/Account/Statement/Statement';
 import Movimiento from './containers/Account/Movimiento/Movimiento';
+import NotFound from './components/NotFound/NotFound';
 import Layout from './hoc/Layout/Layout';
 
 class App extends Component{
@@ -18,6 +19,7 @@ class App extends Component{
             <Route component={Profile} path="/profile"/>
             <Route component={Statement} path="/statement"/>
             <Route component={Movimiento} path="/movimiento/:tipo"/>
+            <Route component={NotFound}/>
           </Switch>
         </Layout>
       </div>

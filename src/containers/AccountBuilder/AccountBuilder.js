@@ -13,12 +13,21 @@ class AhorroBuilder extends Component{
                 nombres: "Oscar Rolando",
                 apellidos: "Gamboa Acho",
                 nrodocumento: "7925512",
-                ahorro: {
-                    monto: 0,
-                    movimientos: [],
-                }
+                ahorroTotal: 0
             }
         };
+    }
+    componentDidMount(){
+        /*axios.get('movimientos.json')
+            .then(response => {
+                this.setState({
+                    ahorrista: {
+                        ahorro: {
+                            movimientos: response.data
+                        }
+                    }
+                })
+            });*/
     }
     render(){
         return(

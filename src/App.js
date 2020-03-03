@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import './App.css';
 import {Switch, Route} from 'react-router-dom';
 
-import AhorroBuilder from './containers/AhorroBuilder/AhorroBuilder';
+import AccountBuilder from './containers/AccountBuilder/AccountBuilder';
 import Profile from './containers/Account/Profile/Profile';
 import Statement from './containers/Account/Statement/Statement';
-import Movimiento from './containers/Account/Movimiento/Movimiento';
+import Movement from './containers/Account/Movement/Movement';
 import NotFound from './components/NotFound/NotFound';
 import Layout from './hoc/Layout/Layout';
 
@@ -15,10 +15,10 @@ class App extends Component{
       <div> 
         <Layout>
           <Switch>
-            <Route component={AhorroBuilder} path="/" exact/>
+            <Route component={AccountBuilder} path="/" exact/>
             <Route component={Profile} path="/profile"/>
             <Route component={Statement} path="/statement"/>
-            <Route component={Movimiento} path="/movimiento/:tipo"/>
+            <Route component={Movement} path="/movement/:type"/>
             <Route component={NotFound}/>
           </Switch>
         </Layout>

@@ -3,8 +3,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '../../../components/UI/Button/Button';
 
 import axios from '../../../axios';
-import classes from './Movimiento.module.css';
-class Movimiento extends Component {
+import classes from './Movement.module.css';
+class Movement extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -41,9 +41,9 @@ class Movimiento extends Component {
     }
 
     render() {
-        let tipoDeposito = this.props.match.params.tipo;
+        let tipoDeposito = this.props.match.params.type;
         let reasonMovement = null;
-        if(tipoDeposito === "retiro"){
+        if(tipoDeposito === "withdraw"){
             reasonMovement = (
                 <div className={classes.inputContainer}>
                     <TextField
@@ -80,4 +80,4 @@ class Movimiento extends Component {
         );
     }
 }
-export default Movimiento;
+export default Movement;

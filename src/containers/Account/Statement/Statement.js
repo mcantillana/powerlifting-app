@@ -6,13 +6,14 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import TablePagination from '@material-ui/core/TablePagination';
 
 import axios from '../../../axios';
 import StatementItem from '../../../components/Account/StatementItem/StatementItem';
 import classes from './Statement.module.css';
 
 
-class Extracto extends Component {
+class Statement extends Component {
 
     constructor(props){
         super(props);
@@ -39,21 +40,31 @@ class Extracto extends Component {
                 statement: this.state.statements[key]
             });
         };
+        let all = [5,10,25,50,100];
         return(
-            <TableContainer>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell className={classes.Header} align="center"><span>Tipo</span></TableCell>
-                            <TableCell className={classes.Header} align="center"><span>Monto</span></TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <StatementItem statementList = {statementsArray} loader = {this.state.loading}/>
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            <div>
+                <TableContainer>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell className={classes.Header} align="center"><span>Tipo</span></TableCell>
+                                <TableCell className={classes.Header} align="center"><span>Monto</span></TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <StatementItem statementList = {statementsArray} loader = {this.state.loading}/>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <TablePagination
+                    component="div"
+                    count={100}
+                    rowsPerPage={10}
+                    page={0}
+                    rowsPerPageOptions={all}
+                />
+            </div>
         );
     }
 }
-export default Extracto;
+export default Statement;

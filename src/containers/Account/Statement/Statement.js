@@ -19,7 +19,10 @@ class Statement extends Component {
         super(props);
         this.state = {
             statements: null,
-            loading: true
+            loading: true,
+            pagina: 0,
+            filasPorPagina: 10,
+            filas: 0
         }
     }
     componentDidMount(){
@@ -27,12 +30,29 @@ class Statement extends Component {
             .then(response => {
                 this.setState({
                     statements: response.data, 
-                    loading: false
+                    loading: false,
+                    filas: Object.getOwnPropertyNames(response.data).length
                 });
                 
             });
     }
+
+    handleChangePage = (event, nuevaPagina) => {
+        this.setState({
+            pagina: nuevaPagina
+        });
+    }
+    
+    handleRowsPerPage = (event) => {
+        this.setState({
+            filasPorPagina: +event.target.value,
+            pagina: 0
+        });
+    }
+
     render(){
+        console.log("pagina: "+this.state.pagina);
+        console.log("rowsperpage: "+this.state.filasPorPagina);
         let statementsArray = [];
         for( let key in this.state.statements ){
             statementsArray.push({
@@ -40,7 +60,7 @@ class Statement extends Component {
                 statement: this.state.statements[key]
             });
         };
-        let all = [5,10,25,50,100];
+        let all = [2,5,10,25,50,this.state.filas];
         return(
             <div>
                 <TableContainer>
@@ -52,16 +72,19 @@ class Statement extends Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <StatementItem statementList = {statementsArray} loader = {this.state.loading}/>
+                            <StatementItem statementList = {statementsArray} 
+                                            loader = {this.state.loading}/>
                         </TableBody>
                     </Table>
                 </TableContainer>
                 <TablePagination
                     component="div"
-                    count={100}
-                    rowsPerPage={10}
-                    page={0}
+                    count={this.state.filas}
+                    rowsPerPage={this.state.filasPorPagina}
+                    page={this.state.pagina}
                     rowsPerPageOptions={all}
+                    onChangePage={this.handleChangePage}
+                    onChangeRowsPerPage={this.handleRowsPerPage}
                 />
             </div>
         );

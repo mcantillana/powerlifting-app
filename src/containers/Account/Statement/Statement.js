@@ -51,8 +51,6 @@ class Statement extends Component {
     }
 
     render(){
-        console.log("pagina: "+this.state.pagina);
-        console.log("rowsperpage: "+this.state.filasPorPagina);
         let statementsArray = [];
         for( let key in this.state.statements ){
             statementsArray.push({
@@ -60,7 +58,7 @@ class Statement extends Component {
                 statement: this.state.statements[key]
             });
         };
-        let all = [2,5,10,25,50,this.state.filas];
+        let all = [5,10,25,50,this.state.filas];
         return(
             <div>
                 <TableContainer>
@@ -73,7 +71,9 @@ class Statement extends Component {
                         </TableHead>
                         <TableBody>
                             <StatementItem statementList = {statementsArray} 
-                                            loader = {this.state.loading}/>
+                                            loader = {this.state.loading} 
+                                            pagina = {this.state.pagina} 
+                                            filasPorPagina = {this.state.filasPorPagina}/>
                         </TableBody>
                     </Table>
                 </TableContainer>

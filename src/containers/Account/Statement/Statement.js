@@ -6,9 +6,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import TablePagination from '@material-ui/core/TablePagination';
+
 
 import axios from '../../../axios';
+import TablePagination from '../../../components/UI/Pagination/TablePagination';
 import StatementItem from '../../../components/Account/StatementItem/StatementItem';
 import classes from './Statement.module.css';
 
@@ -58,7 +59,7 @@ class Statement extends Component {
                 statement: this.state.statements[key]
             });
         };
-        let all = [5,10,25,50,this.state.filas];
+        let numberRows = [5,10,25,50,this.state.filas];
         return(
             <div>
                 <TableContainer>
@@ -78,13 +79,12 @@ class Statement extends Component {
                     </Table>
                 </TableContainer>
                 <TablePagination
-                    component="div"
-                    count={this.state.filas}
-                    rowsPerPage={this.state.filasPorPagina}
+                    rows={this.state.filas}
+                    rowsPage={this.state.filasPorPagina}
                     page={this.state.pagina}
-                    rowsPerPageOptions={all}
-                    onChangePage={this.handleChangePage}
-                    onChangeRowsPerPage={this.handleRowsPerPage}
+                    numberRows={numberRows}
+                    changePage={this.handleChangePage}
+                    rowsPerPage={this.handleRowsPerPage}
                 />
             </div>
         );

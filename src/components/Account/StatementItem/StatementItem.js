@@ -7,12 +7,13 @@ import TableCell from '@material-ui/core/TableCell';
 import Aux from './../../../hoc/Aux/Aux';
 const statementItem = (props) => {
     let statementsItems =     
-            props.statementList.slice(props.pagina*props.filasPorPagina, props.pagina*props.filasPorPagina + props.filasPorPagina)
-                                .map((st) => (
-                <TableRow key={st.id}>
-                    <TableCell align="center">{st.statement.tipo}</TableCell>
-                    <TableCell align="center">{st.statement.amount}</TableCell>
-                </TableRow>
+            props.statementList.reverse()
+                .slice(props.pagina*props.filasPorPagina, props.pagina*props.filasPorPagina + props.filasPorPagina)
+                .map((st) => (
+                    <TableRow key={st.id}>
+                        <TableCell align="center">{st.statement.tipo}</TableCell>
+                        <TableCell align="center">{st.statement.amount}</TableCell>
+                    </TableRow>
             ));
         if( props.loader ){
             statementsItems = (

@@ -79,6 +79,7 @@ class Statement extends Component {
                     </Table>
                 </TableContainer>
                 <TablePagination
+                    classSection="PaginationStatement"
                     rows={this.state.filas}
                     rowsPage={this.state.filasPorPagina}
                     page={this.state.pagina}

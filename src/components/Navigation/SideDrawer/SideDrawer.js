@@ -44,7 +44,7 @@ const sideDrawer = (props) => {
                 <List>
                     <ListItem button key="Perfil" component={Link} to="/profile">
                         <ListItemIcon><AccountCircleIcon/></ListItemIcon>
-                        <ListItemText primary="Mi Perfil"/>
+                        <ListItemText primary="Profile"/>
                     </ListItem>
                     <ListItem button onClick={props.itemSavingToggleClicked}>
                         <ListItemIcon>

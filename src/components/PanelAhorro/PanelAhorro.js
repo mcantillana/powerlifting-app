@@ -5,7 +5,7 @@ import Aux from '../../hoc/Aux/Aux';
 
 import classes from './PanelAhorro.module.css';
 class PanelAhorro extends Component{
-    
+
     render(){
         return(
             <Aux>
@@ -14,7 +14,7 @@ class PanelAhorro extends Component{
                     justify="center"
                     alignItems="center" >
                     <div className={classes.PanelAhorro}>
-                        <p className={classes.Monto}>Monto Actual: {this.props.alcancia.ahorroTotal}</p>
+                        <p className={classes.Monto}>Monto Actual: {this.props.ahorroTotal}</p>
                         <p className={classes.Duenio}>
                             <span>Ahorrista: </span>{this.props.alcancia.apellidos} {this.props.alcancia.nombres}
                         </p>

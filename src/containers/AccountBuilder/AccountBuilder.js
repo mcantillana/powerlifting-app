@@ -5,6 +5,7 @@ import Aux from '../../hoc/Aux/Aux';
 import axios from '../../axios';
 import PanelAhorro from '../../components/PanelAhorro/PanelAhorro';
 
+
 class AhorroBuilder extends Component{
     constructor(props){
         super(props);
@@ -24,24 +25,27 @@ class AhorroBuilder extends Component{
                 let dataStatements = response.data;
                 let total = 0;
                for( let item in dataStatements){
-                   let amount = parseFloat(dataStatements[item].amount).toFixed(2);
+                   let amount = parseFloat(dataStatements[item].amount);
                    if(dataStatements[item].tipo === "save"){
-                       total = total + amount;
+                       total += amount;
                    }
                    if(dataStatements[item].tipo === "withdraw"){
-                       total = total - amount;
+                       total -= amount;
                    }
-                   //console.log(dataStatements[item].amount+"-"+total + "--");
                }
-               console.log(total);
+               total = total.toFixed(2);
                this.setState({ahorroTotal: total});
             });
     }
     render(){
+        let info = (<h2>No Data</h2>);
+        if(this.state.ahorroTotal > 0) {
+            info = <PanelAhorro alcancia = {this.state.ahorrista} ahorroTotal = {this.state.ahorroTotal}/>
+        }
         return(
             <Aux>
                 <Container maxWidth="lg">
-                    <PanelAhorro alcancia = {this.state.ahorrista}/>
+                    {info}
                 </Container>
             </Aux>
         )

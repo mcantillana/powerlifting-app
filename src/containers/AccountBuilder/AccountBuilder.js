@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
-import Aux from '../../hoc/Aux/Aux';
 
+import Aux from '../../hoc/Aux/Aux';
+import axios from '../../axios';
 import PanelAhorro from '../../components/PanelAhorro/PanelAhorro';
 
 class AhorroBuilder extends Component{
@@ -18,16 +19,23 @@ class AhorroBuilder extends Component{
         };
     }
     componentDidMount(){
-        /*axios.get('movimientos.json')
+        axios.get('movimientos.json')
             .then(response => {
-                this.setState({
-                    ahorrista: {
-                        ahorro: {
-                            movimientos: response.data
-                        }
-                    }
-                })
-            });*/
+                let dataStatements = response.data;
+                let total = 0;
+               for( let item in dataStatements){
+                   let amount = parseFloat(dataStatements[item].amount).toFixed(2);
+                   if(dataStatements[item].tipo === "save"){
+                       total = total + amount;
+                   }
+                   if(dataStatements[item].tipo === "withdraw"){
+                       total = total - amount;
+                   }
+                   //console.log(dataStatements[item].amount+"-"+total + "--");
+               }
+               console.log(total);
+               this.setState({ahorroTotal: total});
+            });
     }
     render(){
         return(

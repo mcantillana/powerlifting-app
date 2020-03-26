@@ -60,6 +60,19 @@ class Statement extends Component {
             });
         };
         let numberRows = [5,10,25,50,this.state.filas];
+        let statementsItems =     
+            statementsArray.reverse()
+                .slice(this.state.pagina*this.state.filasPorPagina, 
+                        this.state.pagina*this.state.filasPorPagina + this.state.filasPorPagina)
+                .map((st) => (
+                    <TableRow key={st.id}>
+                        <StatementItem type={st.statement.tipo} 
+                                        amount={st.statement.amount}
+                                        loader={this.state.loading}/>
+                       {/*<TableCell align="center">{st.statement.tipo}</TableCell>
+                        <TableCell align="center">{st.statement.amount}</TableCell>*/}
+                    </TableRow>
+            ));
         return(
             <div>
                 <TableContainer>
@@ -71,10 +84,11 @@ class Statement extends Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <StatementItem statementList = {statementsArray} 
+                            {statementsItems}
+                            {/*<StatementItem statementList = {statementsArray} 
                                             loader = {this.state.loading} 
                                             pagina = {this.state.pagina} 
-                                            filasPorPagina = {this.state.filasPorPagina}/>
+                                            filasPorPagina = {this.state.filasPorPagina}/>*/}
                         </TableBody>
                     </Table>
                 </TableContainer>

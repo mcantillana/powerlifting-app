@@ -24,7 +24,7 @@ class AhorroBuilder extends Component{
             .then(response => {
                 let dataStatements = response.data;
                 let total = 0;
-               for( let item in dataStatements){
+               for(let item in dataStatements){
                    let amount = parseFloat(dataStatements[item].amount);
                    if(dataStatements[item].tipo === "save"){
                        total += amount;

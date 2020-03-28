@@ -19,7 +19,7 @@ class Statement extends Component {
     constructor(props){
         super(props);
         this.state = {
-            statements: null,
+            statements: [],
             loading: true,
             pagina: 0,
             filasPorPagina: 10,
@@ -30,11 +30,19 @@ class Statement extends Component {
         axios.get('movimientos.json')
             .then(response => {
                 let size = 0;
+                let statements = [];
                 if(response.data){
                     size = Object.getOwnPropertyNames(response.data).length;
+                    for( let key in response.data ){
+                        statements.push({
+                            id: key,
+                            statement: response.data[key]
+                        });
+                    };
                 }
+                
                 this.setState({
-                    statements: response.data, 
+                    statements: statements, 
                     loading: false,
                     filas: size
                 });
@@ -56,13 +64,6 @@ class Statement extends Component {
     }
 
     render(){
-        let statementsArray = [];
-        for( let key in this.state.statements ){
-            statementsArray.push({
-                id: key,
-                statement: this.state.statements[key]
-            });
-        };
         let numberRows = [5,10,25,50,this.state.filas];
         return(
             <div>
@@ -75,7 +76,7 @@ class Statement extends Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <StatementItem statementList = {statementsArray} 
+                            <StatementItem statementList = {this.state.statements} 
                                             loader = {this.state.loading} 
                                             pagina = {this.state.pagina} 
                                             filasPorPagina = {this.state.filasPorPagina}/>

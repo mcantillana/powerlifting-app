@@ -29,10 +29,14 @@ class Statement extends Component {
     componentDidMount(){
         axios.get('movimientos.json')
             .then(response => {
+                let size = 0;
+                if(response.data){
+                    size = Object.getOwnPropertyNames(response.data).length;
+                }
                 this.setState({
                     statements: response.data, 
                     loading: false,
-                    filas: Object.getOwnPropertyNames(response.data).length
+                    filas: size
                 });
                 
             });
@@ -60,19 +64,6 @@ class Statement extends Component {
             });
         };
         let numberRows = [5,10,25,50,this.state.filas];
-        let statementsItems =     
-            statementsArray.reverse()
-                .slice(this.state.pagina*this.state.filasPorPagina, 
-                        this.state.pagina*this.state.filasPorPagina + this.state.filasPorPagina)
-                .map((st) => (
-                    <TableRow key={st.id}>
-                        <StatementItem type={st.statement.tipo} 
-                                        amount={st.statement.amount}
-                                        loader={this.state.loading}/>
-                       {/*<TableCell align="center">{st.statement.tipo}</TableCell>
-                        <TableCell align="center">{st.statement.amount}</TableCell>*/}
-                    </TableRow>
-            ));
         return(
             <div>
                 <TableContainer>
@@ -84,11 +75,10 @@ class Statement extends Component {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {statementsItems}
-                            {/*<StatementItem statementList = {statementsArray} 
+                            <StatementItem statementList = {statementsArray} 
                                             loader = {this.state.loading} 
                                             pagina = {this.state.pagina} 
-                                            filasPorPagina = {this.state.filasPorPagina}/>*/}
+                                            filasPorPagina = {this.state.filasPorPagina}/>
                         </TableBody>
                     </Table>
                 </TableContainer>

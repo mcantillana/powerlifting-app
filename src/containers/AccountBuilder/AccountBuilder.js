@@ -22,19 +22,30 @@ class AhorroBuilder extends Component{
     componentDidMount(){
         axios.get('movimientos.json')
             .then(response => {
-                let dataStatements = response.data;
-                let total = 0;
-               for(const item in dataStatements){
-                   let amount = parseFloat(dataStatements[item].amount);
-                   if(dataStatements[item].tipo === "save"){
-                       total += amount;
-                   }
-                   if(dataStatements[item].tipo === "withdraw"){
-                       total -= amount;
-                   }
+               let size = 0;
+               if(response.data) {
+                   size = Object.getOwnPropertyNames(response.data).length;
                }
-               total = total.toFixed(2);
-               this.setState({ahorroTotal: total});
+               return [response.data, size];
+            })
+            .then(([response, size]) => {
+                let total = 0;
+                const data = Object.keys(response);
+                data.map(item => {
+                    let amount = parseFloat(response[item].amount);
+                    if(response[item].tipo === "save"){
+                        total += amount;
+                    }
+                    if(response[item].tipo === "withdraw"){
+                        total -= amount;
+                    }
+                    return total;
+                })
+                return total;
+            })
+            .then(total => {
+                let totalAmount = total.toFixed(2);
+                this.setState({ahorroTotal:totalAmount});
             });
     }
     render(){

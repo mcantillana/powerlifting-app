@@ -34,23 +34,6 @@ class Statement extends Component {
                     size = Object.getOwnPropertyNames(response.data).length;
                 }
                 return [response.data, size];
-                /*let statements = [];
-                if(response.data){
-                    console.log(response.data);
-                    size = Object.getOwnPropertyNames(response.data).length;
-                    for( let key in response.data ){
-                        statements.push({
-                            id: key,
-                            statement: response.data[key]
-                        });
-                    };
-                }
-                
-                this.setState({
-                    statements: statements, 
-                    loading: false,
-                    filas: size
-                });*/
             })
             .then(([response, size]) => {
                 const _keys = Object.keys(response);
@@ -63,8 +46,6 @@ class Statement extends Component {
                 return [newResponse, size];
             })
             .then(([response, size])=> {
-                console.log('response', response);
-                console.log('size', size);
                 this.setState({
                     statements: response,
                     loading: false,

@@ -30,8 +30,13 @@ class Statement extends Component {
         axios.get('movimientos.json')
             .then(response => {
                 let size = 0;
-                let statements = [];
                 if(response.data){
+                    size = Object.getOwnPropertyNames(response.data).length;
+                }
+                return [response.data, size];
+                /*let statements = [];
+                if(response.data){
+                    console.log(response.data);
                     size = Object.getOwnPropertyNames(response.data).length;
                     for( let key in response.data ){
                         statements.push({
@@ -45,8 +50,26 @@ class Statement extends Component {
                     statements: statements, 
                     loading: false,
                     filas: size
+                });*/
+            })
+            .then(([response, size]) => {
+                const _keys = Object.keys(response);
+                const newResponse = _keys.map(key => {
+                    return {
+                        id: key,
+                        statement: response[key]
+                    }
                 });
-                
+                return [newResponse, size];
+            })
+            .then(([response, size])=> {
+                console.log('response', response);
+                console.log('size', size);
+                this.setState({
+                    statements: response,
+                    loading: false,
+                    filas: size
+                });
             });
     }
 

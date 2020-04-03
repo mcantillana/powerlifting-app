@@ -40,16 +40,19 @@ class Movement extends Component {
         this.setState({motivoRetiro: event.target.value});
     }
 
+
     render() {
         let tipoDeposito = this.props.match.params.type;
         let reasonMovement = null;
+        let action = 'Save';
         if(tipoDeposito === "withdraw"){
+            action = 'Withdraw';
             reasonMovement = (
                 <div className={classes.inputContainer}>
                     <TextField
                         id="standard-multiline-static"
                         className={classes.input}
-                        label="Motivo del Retiro"
+                        label="Reason"
                         multiline
                         rows="2"
                         onChange={this.reasonHandler}
@@ -65,7 +68,7 @@ class Movement extends Component {
                             required
                             className={classes.input}
                             id="standard-number"
-                            label="Monto"
+                            label="Amount"
                             type="number"
                             InputLabelProps={{
                                 shrink: true
@@ -74,7 +77,7 @@ class Movement extends Component {
                         />
                     </div>
                     {reasonMovement}
-                    <Button btnType="submitAhorro">Depositar</Button>
+                    <Button btnType="submitAhorro">{action}</Button>
                 </form>
             </div>
         );

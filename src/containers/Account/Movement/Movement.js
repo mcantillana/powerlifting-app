@@ -8,7 +8,7 @@ class Movement extends Component {
     constructor(props){
         super(props);
         this.state = {
-            monto: 0,
+            monto: "",
             tipoDeposito: '',
             motivoRetiro:''
         }
@@ -39,7 +39,20 @@ class Movement extends Component {
     reasonHandler = (event) => {
         this.setState({motivoRetiro: event.target.value});
     }
-
+    validateCharacter = (event) => {
+        const charactersAllowed = ['1', '2', '3', '4', '5', '6', '7',
+                                '8', '9', '0'];
+        const {
+            target: { name, value }
+            } = event;
+        console.log(charactersAllowed.includes(event.key));
+        if(charactersAllowed.includes(event.key)){
+            let character = event.key;
+            this.setState((prevState) => {
+                return {[name]:  value+character}
+            });
+        }
+    }
 
     render() {
         let tipoDeposito = this.props.match.params.type;
@@ -70,10 +83,13 @@ class Movement extends Component {
                             id="standard-number"
                             label="Amount"
                             type="number"
+                            name="monto"
                             InputLabelProps={{
                                 shrink: true
                             }}
-                            onChange={this.amountHandler}
+                            value={this.state.monto}
+                            /*onChange={this.amountHandler}*/
+                            onKeyUp={this.validateCharacter}
                         />
                     </div>
                     {reasonMovement}

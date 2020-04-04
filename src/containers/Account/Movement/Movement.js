@@ -8,20 +8,20 @@ class Movement extends Component {
     constructor(props){
         super(props);
         this.state = {
-            monto: "",
+            amount: "",
             tipoDeposito: '',
-            motivoRetiro:''
+            reason:''
         }
     }
 
-    setMoneyAmount(event, tipoDeposito){
+    setMoneyAmount(event, type){
         event.preventDefault();
         const movimiento = {
-            amount: this.state.monto,
-            tipo: tipoDeposito
+            amount: this.state.amount,
+            tipo: type
         }
-        if( tipoDeposito === "retiro" ){
-            movimiento.motivo = this.state.motivoRetiro;
+        if( type === "withdraw" ){
+            movimiento.motivo = this.state.reason;
         }
         axios.post('movimientos.json', movimiento)
             .then(response => {
@@ -29,15 +29,11 @@ class Movement extends Component {
             })
             .catch(error => {
                 console.log(error);
-            });
-    }
-    
-    amountHandler = (event) => {
-        this.setState({monto: event.target.value});
+        });
     }
 
     reasonHandler = (event) => {
-        this.setState({motivoRetiro: event.target.value});
+        this.setState({reason: event.target.value});
     }
     validateCharacter = (event) => {
         const charactersAllowed = ['1', '2', '3', '4', '5', '6', '7',
@@ -45,30 +41,24 @@ class Movement extends Component {
         const {
             target: { name, value }
             } = event;
-        //console.log(charactersAllowed.includes(event.key));
-        console.log(event.keyCode);
         if(charactersAllowed.includes(event.key)){
             let character = (event.keyCode !== 8)?event.key:'';
             let amountValue = value + character;
-            /*console.log("hay punto:",value.indexOf('.') > -1);
-            console.log("es punto: ",event.key ==='.');*/
             if( value.indexOf('.') > -1 && event.key === '.'){
                 amountValue = value;
             }
             if(event.keyCode === 8){
                 amountValue = amountValue.slice(0, -1);
             }
-            /*console.log("valor",amountValue);
-            console.log("======");*/
             this.setState({[name]: amountValue});
         }
     }
 
     render() {
-        let tipoDeposito = this.props.match.params.type;
+        let type = this.props.match.params.type;
         let reasonMovement = null;
         let action = 'Save';
-        if(tipoDeposito === "withdraw"){
+        if(type === "withdraw"){
             action = 'Withdraw';
             reasonMovement = (
                 <div className={classes.inputContainer}>
@@ -85,7 +75,7 @@ class Movement extends Component {
         }
         return (
             <div className={classes.Movimiento}>
-                <form onSubmit={(event) => this.setMoneyAmount(event,tipoDeposito)}>
+                <form onSubmit={(event) => this.setMoneyAmount(event,type)}>
                     <div className={classes.inputContainer}>
                         <TextField
                             required
@@ -93,12 +83,11 @@ class Movement extends Component {
                             id="standard-number"
                             label="Amount"
                             type="text"
-                            name="monto"
+                            name="amount"
                             InputLabelProps={{
                                 shrink: true
                             }}
-                            value={this.state.monto}
-                            /*onChange={this.amountHandler}*/
+                            value={this.state.amount}
                             onKeyUp={this.validateCharacter}
                         />
                     </div>

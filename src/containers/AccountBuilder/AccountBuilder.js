@@ -23,6 +23,7 @@ class AhorroBuilder extends Component{
         axios.get('movimientos.json')
             .then(response => {
                let size = 0;
+               console.log(response.data);
                if(response.data) {
                    size = Object.getOwnPropertyNames(response.data).length;
                }
@@ -30,17 +31,20 @@ class AhorroBuilder extends Component{
             })
             .then(([response, size]) => {
                 let total = 0;
-                const data = Object.keys(response);
-                data.map(item => {
-                    let amount = parseFloat(response[item].amount);
-                    if(response[item].tipo === "save"){
-                        total += amount;
-                    }
-                    if(response[item].tipo === "withdraw"){
-                        total -= amount;
-                    }
-                    return total;
-                })
+                if(size > 0){
+                    const data = Object.keys(response);
+                    data.map(item => {
+                        let amount = parseFloat(response[item].amount);
+                        if(response[item].tipo === "save"){
+                            total += amount;
+                        }
+                        if(response[item].tipo === "withdraw"){
+                            total -= amount;
+                        }
+                        return total;
+                    })
+                    if( total < 0 ) total = 0;
+                }
                 return total;
             })
             .then(total => {
@@ -49,14 +53,11 @@ class AhorroBuilder extends Component{
             });
     }
     render(){
-        let info = (<h2>No Data</h2>);
-        if(this.state.ahorroTotal > 0) {
-            info = <PanelAhorro alcancia = {this.state.ahorrista} ahorroTotal = {this.state.ahorroTotal}/>
-        }
         return(
             <Aux>
                 <Container maxWidth="lg">
-                    {info}
+                    <PanelAhorro alcancia = {this.state.ahorrista} 
+                                ahorroTotal = {this.state.ahorroTotal}/>
                 </Container>
             </Aux>
         )

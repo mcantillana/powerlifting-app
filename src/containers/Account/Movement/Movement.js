@@ -41,16 +41,26 @@ class Movement extends Component {
     }
     validateCharacter = (event) => {
         const charactersAllowed = ['1', '2', '3', '4', '5', '6', '7',
-                                '8', '9', '0'];
+                                '8', '9', '0','.','Backspace'];
         const {
             target: { name, value }
             } = event;
-        console.log(charactersAllowed.includes(event.key));
+        //console.log(charactersAllowed.includes(event.key));
+        console.log(event.keyCode);
         if(charactersAllowed.includes(event.key)){
-            let character = event.key;
-            this.setState((prevState) => {
-                return {[name]:  value+character}
-            });
+            let character = (event.keyCode !== 8)?event.key:'';
+            let amountValue = value + character;
+            /*console.log("hay punto:",value.indexOf('.') > -1);
+            console.log("es punto: ",event.key ==='.');*/
+            if( value.indexOf('.') > -1 && event.key === '.'){
+                amountValue = value;
+            }
+            if(event.keyCode === 8){
+                amountValue = amountValue.slice(0, -1);
+            }
+            /*console.log("valor",amountValue);
+            console.log("======");*/
+            this.setState({[name]: amountValue});
         }
     }
 
@@ -82,7 +92,7 @@ class Movement extends Component {
                             className={classes.input}
                             id="standard-number"
                             label="Amount"
-                            type="number"
+                            type="text"
                             name="monto"
                             InputLabelProps={{
                                 shrink: true

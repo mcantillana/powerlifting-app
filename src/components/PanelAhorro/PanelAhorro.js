@@ -14,9 +14,9 @@ class PanelAhorro extends Component{
                     justify="center"
                     alignItems="center" >
                     <div className={classes.PanelAhorro}>
-                        <p className={classes.Monto}>Monto Actual: {this.props.ahorroTotal} Bs.</p>
+                        <p className={classes.Monto}>Monto Actual: {this.props.amountTotal} Bs.</p>
                         <p className={classes.Duenio}>
-                            <span>Ahorrista: </span>{this.props.alcancia.apellidos} {this.props.alcancia.nombres}
+                            <span>Ahorrista: </span>{this.props.alcancia.lastname} {this.props.alcancia.name}
                         </p>
                     </div>    
                 </Grid>

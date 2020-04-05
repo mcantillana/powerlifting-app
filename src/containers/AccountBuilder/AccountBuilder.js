@@ -12,10 +12,10 @@ class AhorroBuilder extends Component{
 
         this.state = {
             ahorrista: {
-                nombres: "Oscar Rolando",
-                apellidos: "Gamboa Acho",
-                nrodocumento: "7925512",
-                ahorroTotal: 0
+                name: "Oscar Rolando",
+                lastname: "Gamboa Acho",
+                documentNumber: "7925512",
+                total: 0
             }
         };
     }
@@ -23,7 +23,6 @@ class AhorroBuilder extends Component{
         axios.get('movimientos.json')
             .then(response => {
                let size = 0;
-               console.log(response.data);
                if(response.data) {
                    size = Object.getOwnPropertyNames(response.data).length;
                }
@@ -49,7 +48,7 @@ class AhorroBuilder extends Component{
             })
             .then(total => {
                 let totalAmount = total.toFixed(2);
-                this.setState({ahorroTotal:totalAmount});
+                this.setState({total:totalAmount});
             });
     }
     render(){
@@ -57,7 +56,7 @@ class AhorroBuilder extends Component{
             <Aux>
                 <Container maxWidth="lg">
                     <PanelAhorro alcancia = {this.state.ahorrista} 
-                                ahorroTotal = {this.state.ahorroTotal}/>
+                                amountTotal = {this.state.total}/>
                 </Container>
             </Aux>
         )

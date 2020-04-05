@@ -11,6 +11,7 @@ import Divider from '@material-ui/core/Divider';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Drawer from '@material-ui/core/Drawer';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HomeIcon from '@material-ui/icons/Home';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
@@ -42,6 +43,10 @@ const sideDrawer = (props) => {
                 </div>
                 <Divider />
                 <List>
+                    <ListItem button key="Inicio" component={Link} to="/">
+                        <ListItemIcon><HomeIcon/></ListItemIcon>
+                        <ListItemText primary="Inicio"/>
+                    </ListItem>
                     <ListItem button key="Perfil" component={Link} to="/profile">
                         <ListItemIcon><AccountCircleIcon/></ListItemIcon>
                         <ListItemText primary="Profile"/>

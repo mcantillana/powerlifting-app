@@ -5,8 +5,7 @@ import Aux from '../../hoc/Aux/Aux';
 import axios from '../../axios';
 import PanelAhorro from '../../components/PanelAhorro/PanelAhorro';
 
-
-class AhorroBuilder extends Component{
+class AccountBuilder extends Component{
     constructor(props){
         super(props);
 
@@ -63,4 +62,4 @@ class AhorroBuilder extends Component{
     }
 }
 
-export default AhorroBuilder;
+export default AccountBuilder;

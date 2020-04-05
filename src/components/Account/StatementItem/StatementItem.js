@@ -1,22 +1,33 @@
-import React from 'react';
+import React,{Component} from 'react';
 
 import loader from '../../../assets/gif/loader.gif';
 import Aux from './../../../hoc/Aux/Aux';
+import Button from '../../UI/Button/Button';
 
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
-const statementItem = (props) => {
-    let statementsItems =     
-        props.statementList.reverse()
-            .slice(props.pagina*props.filasPorPagina, props.pagina*props.filasPorPagina + props.filasPorPagina)
+class StatementItem extends Component {
+    eliminateItem = (id) => {
+        console.log("test" + id);
+    }
+    render() {
+        let statementsItems =     
+        this.props.statementList.reverse()
+            .slice(this.props.pagina*this.props.filasPorPagina, 
+                    this.props.pagina*this.props.filasPorPagina + this.props.filasPorPagina)
             .map((st) => (
                 <TableRow key={st.id}>
                     <TableCell align="center">{st.statement.tipo}</TableCell>
                     <TableCell align="center">{st.statement.amount}</TableCell>
+                    <TableCell align="center">
+                        <Button btnType="removeStatementItem" clicked = {() => this.eliminateItem(st.id)}>
+                            Eliminate
+                        </Button>
+                    </TableCell>
                 </TableRow>
         ));
-    if( props.loader ){
+    if( this.props.loader ){
         statementsItems = (
             <TableRow>
                 <TableCell align="center" colSpan={2}>
@@ -25,7 +36,7 @@ const statementItem = (props) => {
             </TableRow>
         );
     }
-    if( !props.loader && !props.statementList.length ){
+    if( !this.props.loader && !this.props.statementList.length ){
         statementsItems = (
             <TableRow>
                 <TableCell align="center" colSpan={2}>No existen depositos</TableCell>
@@ -37,6 +48,6 @@ const statementItem = (props) => {
             {statementsItems}
         </Aux>
     );
+    }
 }
-
-export default statementItem;
+export default StatementItem;

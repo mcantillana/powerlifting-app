@@ -25,7 +25,7 @@ class Movement extends Component {
         }
         axios.post('movimientos.json', movimiento)
             .then(response => {
-                this.props.history.push('/');
+                this.props.history.push('/statement');
             })
             .catch(error => {
                 console.log(error);

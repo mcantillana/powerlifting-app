@@ -77,6 +77,7 @@ class Statement extends Component {
                             <TableRow>
                                 <TableCell className={classes.Header} align="center"><span>Tipo</span></TableCell>
                                 <TableCell className={classes.Header} align="center"><span>Monto</span></TableCell>
+                                <TableCell className={classes.Header} align="center"><span>Opciones</span></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>

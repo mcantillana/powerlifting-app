@@ -67,6 +67,16 @@ class Statement extends Component {
         });
     }
 
+    eliminateItem = (statementItemId) => {
+        axios.delete('movimientos.json/'+statementItemId)
+            .then(response => {
+                alert("Movement eliminated successfully");
+            })
+            .catch(() => {
+                alert("There was an error while eliminating the item, please verify it.")
+            });
+    }
+
     render(){
         let numberRows = [5,10,25,50,this.state.filas];
         return(
@@ -84,7 +94,8 @@ class Statement extends Component {
                             <StatementItem statementList = {this.state.statements} 
                                             loader = {this.state.loading} 
                                             pagina = {this.state.pagina} 
-                                            filasPorPagina = {this.state.filasPorPagina}/>
+                                            filasPorPagina = {this.state.filasPorPagina}
+                                            removeStatement = {this.eliminateItem}/>
                         </TableBody>
                     </Table>
                 </TableContainer>

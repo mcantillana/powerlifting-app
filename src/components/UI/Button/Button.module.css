@@ -21,3 +21,12 @@
     margin: 0;
     width: 100%;
 }
+
+.Button.removeStatementItem{
+    background: #DB0202;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+}

@@ -1,8 +1,6 @@
 .PanelAhorro{
     background: #057A22;
-    width: 50%;
     color: #FFF;
-    border-radius: 5%;
     display: block;
     margin-top: 30px;
 }
@@ -14,13 +12,101 @@
 
 .PanelAhorro p.Monto{
     text-align: center;
-    font-size: 40px;
     margin: 50px 0px 35px 0px;
     padding: 20px 0px;
 }
-.PanelAhorro span{
-    font-weight: bold;
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    .PanelAhorro {
+        border-radius: 25px;
+        width: 50%;
+    }
+    .PanelAhorro p.Monto {
+        font-size: 40px;
+    }
+
+    
 }
-.PanelAhorro .Duenio{
-    margin: 20px 15px;
+  
+/*
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+*/
+  
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .PanelAhorro {
+        border-radius: 25px;
+        width: 50%;
+    }        
+    .PanelAhorro p.Monto {
+        font-size: 40px;
+    }
+    
+}
+  
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+*/
+  
+@media (min-width: 768px) and (max-width: 1024px) {
+    .PanelAhorro {
+        border-radius: 30px;
+        width: 60%;
+    }
+    .PanelAhorro p.Monto {
+        font-size: 30px;
+    }    
+}
+  
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+*/
+  
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .PanelAhorro {
+        border-radius: 30px;
+        width: 70%;
+    }
+    .PanelAhorro p.Monto {
+        font-size: 30px;
+    }
+}
+  
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+*/
+  
+@media (min-width: 481px) and (max-width: 767px) {
+    .PanelAhorro {
+        border-radius: 40px;
+        width: 85%;
+    }    
+    .PanelAhorro p.Monto {
+        font-size: 30px;
+    }
+    
+}
+  
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+*/
+  
+@media (min-width: 320px) and (max-width: 480px) {
+    .PanelAhorro {
+        border-radius: 40px;
+        width: 100%;
+    }
+    .PanelAhorro p.Monto {
+        font-size: 20px;
+    }
 }

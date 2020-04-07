@@ -15,9 +15,6 @@ class PanelAhorro extends Component{
                     alignItems="center" >
                     <div className={classes.PanelAhorro}>
                         <p className={classes.Monto}>Monto Actual: {this.props.amountTotal} Bs.</p>
-                        <p className={classes.Duenio}>
-                            <span>Ahorrista: </span>{this.props.alcancia.lastname} {this.props.alcancia.name}
-                        </p>
                     </div>    
                 </Grid>
             </Aux>

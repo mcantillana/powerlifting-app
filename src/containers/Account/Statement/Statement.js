@@ -68,7 +68,8 @@ class Statement extends Component {
     }
 
     eliminateItem = (statementItemId) => {
-        axios.delete('movimientos.json/'+statementItemId)
+        axios.delete('movimientos/'+statementItemId)
+
             .then(response => {
                 alert("Movement eliminated successfully");
             })

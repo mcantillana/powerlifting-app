@@ -11,9 +11,6 @@ class AccountBuilder extends Component{
 
         this.state = {
             ahorrista: {
-                name: "Oscar Rolando",
-                lastname: "Gamboa Acho",
-                documentNumber: "7925512",
                 total: 0
             }
         };

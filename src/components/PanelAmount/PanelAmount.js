@@ -3,8 +3,8 @@ import Grid from '@material-ui/core/Grid';
 
 import Aux from '../../hoc/Aux/Aux';
 
-import classes from './PanelAhorro.module.css';
-class PanelAhorro extends Component{
+import classes from './PanelAmount.module.css';
+class PanelAmount extends Component{
 
     render(){
         return(
@@ -13,8 +13,8 @@ class PanelAhorro extends Component{
                     direction = "row"
                     justify="center"
                     alignItems="center" >
-                    <div className={classes.PanelAhorro}>
-                        <p className={classes.Monto}>Monto Actual: {this.props.amountTotal} Bs.</p>
+                    <div className={classes.PanelAmount}>
+                        <p className={classes.Amount}>Monto Actual: {this.props.amountTotal} Bs.</p>
                     </div>    
                 </Grid>
             </Aux>
@@ -22,4 +22,4 @@ class PanelAhorro extends Component{
     }
 }
 
-export default PanelAhorro;
+export default PanelAmount;

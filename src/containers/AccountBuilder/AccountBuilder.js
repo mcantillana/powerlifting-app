@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 
 import Aux from '../../hoc/Aux/Aux';
 import axios from '../../axios';
-import PanelAhorro from '../../components/PanelAhorro/PanelAhorro';
+import PanelAmount from '../../components/PanelAmount/PanelAmount';
 
 class AccountBuilder extends Component{
     constructor(props){
@@ -51,7 +51,7 @@ class AccountBuilder extends Component{
         return(
             <Aux>
                 <Container maxWidth="lg">
-                    <PanelAhorro alcancia = {this.state.ahorrista} 
+                    <PanelAmount alcancia = {this.state.ahorrista} 
                                 amountTotal = {this.state.total}/>
                 </Container>
             </Aux>

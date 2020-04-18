@@ -53,7 +53,7 @@ class Statement extends Component {
                 });
             });
     }
-
+     
     handleChangePage = (event, nuevaPagina) => {
         this.setState({
             pagina: nuevaPagina
@@ -68,14 +68,20 @@ class Statement extends Component {
     }
 
     eliminateItem = (statementItemId) => {
-        axios.delete('movimientos/'+statementItemId)
-
-            .then(response => {
+        let confirmation = window.confirm("Please confirm in order to remove this statement");
+        if(confirmation){
+            axios.delete('movimiento/'+statementItemId+'.json/').then(response => {
+                this.setState((prevState) => {
+                    return {
+                        statements: prevState.statements.filter( st => st.id !== statementItemId )
+                    }
+                });
                 alert("Movement eliminated successfully");
             })
             .catch(() => {
                 alert("There was an error while eliminating the item, please verify it.")
             });
+        }
     }
 
     render(){

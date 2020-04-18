@@ -26,7 +26,7 @@ const statementItem = (props) => {
     if( props.loader ){
         statementsItems = (
             <TableRow>
-                <TableCell align="center" colSpan={2}>
+                <TableCell align="center" colSpan={3}>
                     <img src = {loader} alt="Cargando..." width="60"/>
                 </TableCell>
             </TableRow>
@@ -35,7 +35,7 @@ const statementItem = (props) => {
     if( !props.loader && !props.statementList.length ){
         statementsItems = (
             <TableRow>
-                <TableCell align="center" colSpan={2}>No existen depositos</TableCell>
+                <TableCell align="center" colSpan={3}>No existen depositos</TableCell>
             </TableRow>
         );
     }

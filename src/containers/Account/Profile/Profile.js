@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+
+import FormProfile from '../../../components/Account/User/Form/Form';
 import ProfileData from '../../../components/User/ProfileData/ProfileData';
 import Button from '../../../components/UI/Button/Button';
 import axios from '../../../axios';
@@ -35,7 +37,8 @@ class Profile extends Component{
     }
 
     render(){
-        let profileSection = <Button>Agregar</Button>;
+        
+        let profileSection = <FormProfile/>;
         if(this.state.exist){
             profileSection = Object.keys(this.state.accountData).map(dataKey => {
                 return [...Array(this.state.accountData[dataKey] )].map((i) => {

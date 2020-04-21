@@ -12,8 +12,7 @@ const profileData = (props) => {
             <div className={classes.ProfileInfo}>
                 <Grid item container className={classes.ProfileData}
                         xs={12} 
-                        sm={6}
-                        >
+                        sm={6}>
                         <strong>{subtitleCapitalized}:</strong>
                         <p>{props.dataValue}</p>
                 </Grid>

@@ -1,0 +1,14 @@
+.Form {
+    margin: 25px 0;
+}
+.Form .Row {
+    margin: 20px 0;
+}
+.Form .Row label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+.Form .Row input {
+    font-size: 18px;
+}

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 
-import FormProfile from '../../../components/Account/User/Form/Form';
-import ProfileData from '../../../components/User/ProfileData/ProfileData';
-import Button from '../../../components/UI/Button/Button';
-import axios from '../../../axios';
+import FormProfile from '../Form/Form';
+import ProfileData from '../../../../components/User/ProfileData/ProfileData';
+import Button from '../../../../components/UI/Button/Button';
+import axios from '../../../../axios';
 
 import Grid from '@material-ui/core/Grid';
 import classes from './Profile.module.css';

@@ -3,7 +3,7 @@ import './App.css';
 import {Switch, Route} from 'react-router-dom';
 
 import AccountBuilder from './containers/AccountBuilder/AccountBuilder';
-import Profile from './containers/Account/Profile/Profile';
+import Profile from './containers/Account/Profile/View/Profile';
 import Statement from './containers/Account/Statement/Statement';
 import Movement from './containers/Account/Movement/Movement';
 import NotFound from './components/NotFound/NotFound';

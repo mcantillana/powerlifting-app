@@ -65,36 +65,19 @@ class Form extends Component {
     render() {
         let formElementsArray = [];
         Object.keys(this.state.profileForm).map(key => {
-            formElementsArray.push( {
+            return formElementsArray.push( {
                 id: key,
                 config: this.state.profileForm[key]
             });
         });
-        console.log(formElementsArray);
         return(
             <form className={classes.Form}>
                 {formElementsArray.map( formElement => 
-                      <Input key = {formElement.id} 
+                    <Input key = {formElement.id} 
                         label = {formElement.config.label}
                         elementType = {formElement.config.elementType} 
                         elementConfig = {formElement.config.elementConfig}/>
                 )}
-                {/*<div className={classes.Row}>
-                    <label>Name: </label>
-                    <input type="text" name="name" placeholder="Name"/>
-                </div>
-                <div className={classes.Row}>
-                    <label>Lastname: </label>
-                    <input type="text" name="lastname" placeholder="Lastname"/>
-                </div>
-                <div className={classes.Row}>
-                    <label>ID Number: </label>
-                    <input type="text" name="idnumber" placeholder="ID Number"/>
-                </div>
-                <div className={classes.Row}>
-                    <label>Email: </label>
-                    <input type="email" name="email" placeholder="Email"/>
-                </div>*/}
             </form>
         ) 
     }

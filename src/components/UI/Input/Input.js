@@ -5,13 +5,15 @@ const input = (props) => {
 
     let inputElement = null;
     switch(props.elementType){
-        case 'text':
-        case 'email':
+        case ('text'):
+        case ('email'):
             inputElement = <input {...props.elementConfig}/>;
+            break;
+        default: 
             break;
     }
     return(
-        <div className={classes.Row}>
+        <div className={classes.Input}>
             <label>{props.label}: </label>
             {inputElement}
         </div>

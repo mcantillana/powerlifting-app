@@ -12,7 +12,7 @@
     border: none;
     margin:0;
 }
-.Button.submitAhorro{
+.Button.submitAhorro, .Button.Button.submitProfile{
     background: #057A22;
     color: #FFFFFF;
     font-weight: bold;
@@ -21,7 +21,6 @@
     margin: 0;
     width: 100%;
 }
-
 .Button.removeStatementItem{
     background: #DB0202;
     color: #FFFFFF;

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import classes from './Form.module.css';
 
 import Input from '../../../../components/UI/Input/Input';
+import Button from '../../../../components/UI/Button/Button';
+
 
 class Form extends Component {
 
@@ -78,6 +80,7 @@ class Form extends Component {
                         elementType = {formElement.config.elementType} 
                         elementConfig = {formElement.config.elementConfig}/>
                 )}
+                <Button btnType="submitProfile">REGISTER</Button>
             </form>
         ) 
     }

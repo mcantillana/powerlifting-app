@@ -7,7 +7,7 @@ const input = (props) => {
     switch(props.elementType){
         case ('text'):
         case ('email'):
-            inputElement = <input {...props.elementConfig}/>;
+            inputElement = <input {...props.elementConfig} onChange={props.change}/>;
             break;
         default: 
             break;

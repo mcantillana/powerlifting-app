@@ -3,7 +3,7 @@ import classes from './Form.module.css';
 
 import Input from '../../../../components/UI/Input/Input';
 import Button from '../../../../components/UI/Button/Button';
-
+import axios from '../../../../axios';
 
 class Form extends Component {
 
@@ -60,8 +60,37 @@ class Form extends Component {
                         required: true
                     }
                 }
-            }
+            },
+            formIsValid: false
         }
+    }
+
+    saveProfileData = (event) => {
+        event.preventDefault();
+        const formData = {};
+        Object.keys(this.state.profileForm).map(formElementIdentifier => {
+            return formData[formElementIdentifier] = this.state.profileForm[formElementIdentifier].value;
+        });
+        axios.post('usuario/info.json', formData)
+            .then(response => {
+                this.props.history.push('/profile')
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        
+    }
+
+    inputChangeHandler = (event, inputField) => {
+        const updatedProfileForm = {
+            ...this.state.profileForm
+        };
+        const updatedInputFIeld = {
+            ...updatedProfileForm[inputField]
+        }
+        updatedInputFIeld.value = event.target.value;
+        updatedProfileForm[inputField] = updatedInputFIeld;
+        this.setState({profileForm: updatedProfileForm})
     }
 
     render() {
@@ -73,12 +102,14 @@ class Form extends Component {
             });
         });
         return(
-            <form className={classes.Form}>
+            <form className={classes.Form} onSubmit={this.saveProfileData}>
                 {formElementsArray.map( formElement => 
                     <Input key = {formElement.id} 
                         label = {formElement.config.label}
                         elementType = {formElement.config.elementType} 
-                        elementConfig = {formElement.config.elementConfig}/>
+                        elementConfig = {formElement.config.elementConfig}
+                        value = {formElement.config.value}
+                        change = {(event) => this.inputChangeHandler(event, formElement.id)}/>
                 )}
                 <Button btnType="submitProfile">REGISTER</Button>
             </form>

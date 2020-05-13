@@ -22,10 +22,13 @@ class Profile extends Component{
     }
 
     componentDidMount(){
-        axios.get('account/user.json')
+        axios.get('account/profile.json')
             .then(response => {
                 if(response.data){
-                    const userData = response.data;
+                    const userData = Object.keys(response.data).map(key=> {
+                        const profileData = response.data[key];
+                        return profileData;
+                    });
                     this.setState(
                         {
                             accountData: userData,
@@ -37,16 +40,9 @@ class Profile extends Component{
     }
 
     render(){
-        
         let profileSection = <FormProfile/>;
         if(this.state.exist){
-            profileSection = Object.keys(this.state.accountData).map(dataKey => {
-                return [...Array(this.state.accountData[dataKey] )].map((i) => {
-                    return <ProfileData key={dataKey + i} 
-                                        dataName={dataKey} 
-                                        dataValue={this.state.accountData[dataKey]} />;
-                });
-            })
+            
         }
         return(
             <div className={classes.Profile}>

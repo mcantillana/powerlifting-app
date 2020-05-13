@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import classes from './Form.module.css';
 
 import Input from '../../../../components/UI/Input/Input';
@@ -9,7 +10,6 @@ class Form extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             profileForm: {
                 name: {
@@ -71,14 +71,13 @@ class Form extends Component {
         Object.keys(this.state.profileForm).map(formElementIdentifier => {
             return formData[formElementIdentifier] = this.state.profileForm[formElementIdentifier].value;
         });
-        axios.post('usuario/info.json', formData)
+        axios.post('account/profile.json', formData)
             .then(response => {
-                this.props.history.push('/profile')
+                this.props.history.push('/profile');
             })
             .catch(error => {
                 console.log(error);
             });
-        
     }
 
     inputChangeHandler = (event, inputField) => {
@@ -117,4 +116,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default withRouter(Form);

@@ -7,6 +7,7 @@ import classes from './ProfileData.module.css';
 const profileData = (props) => {
     let subtitle = props.dataName;
     let subtitleCapitalized = subtitle.charAt(0).toUpperCase() + subtitle.slice(1);
+
     return (
         <Aux>
             <div className={classes.ProfileInfo}>

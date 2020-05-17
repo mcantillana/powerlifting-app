@@ -10,7 +10,7 @@ class AccountBuilder extends Component{
         super(props);
 
         this.state = {
-            ahorrista: {
+            user: {
                 total: 0
             }
         };
@@ -51,7 +51,7 @@ class AccountBuilder extends Component{
         return(
             <Aux>
                 <Container maxWidth="lg">
-                    <PanelAmount alcancia = {this.state.ahorrista} 
+                    <PanelAmount alcancia = {this.state.user} 
                                 amountTotal = {this.state.total}/>
                 </Container>
             </Aux>

@@ -12,7 +12,12 @@ class Profile extends Component{
     constructor(props){
         super(props);
         this.state = {
-            accountData:{},
+            accountData:{
+                email: '',
+                idnumber: '',
+                lastname: '',
+                name:''
+            },
             exist: false
         };
     }
@@ -24,9 +29,10 @@ class Profile extends Component{
     componentDidMount(){
         axios.get('account/profile.json')
             .then(response => {
-                if(response.data){
-                    const userData = Object.keys(response.data).map(key=> {
-                        const profileData = response.data[key];
+                const res = response.data;
+                if(res){
+                    /*const userData = res.map(key=> {
+                        const profileData = res[key];
                         return profileData;
                     });
                     this.setState(
@@ -34,12 +40,13 @@ class Profile extends Component{
                             accountData: userData,
                             exist: true
                         }
-                    );
+                    );*/
                 }
             });
     }
 
     render(){
+        console.log(this.state.accoundData);
         let profileSection = <FormProfile/>;
         if(this.state.exist){
             

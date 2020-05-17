@@ -21,9 +21,9 @@ class Statement extends Component {
         this.state = {
             statements: [],
             loading: true,
-            pagina: 0,
-            filasPorPagina: 10,
-            filas: 0
+            page: 0,
+            rowsPerPage: 10,
+            rows: 0
         }
     }
     componentDidMount(){
@@ -49,21 +49,21 @@ class Statement extends Component {
                 this.setState({
                     statements: response,
                     loading: false,
-                    filas: size
+                    rows: size
                 });
             });
     }
      
-    handleChangePage = (event, nuevaPagina) => {
+    handleChangePage = (event, newPage) => {
         this.setState({
-            pagina: nuevaPagina
+            page: newPage
         });
     }
     
     handleRowsPerPage = (event) => {
         this.setState({
-            filasPorPagina: +event.target.value,
-            pagina: 0
+            rowsPerPage: +event.target.value,
+            page: 0
         });
     }
 
@@ -85,32 +85,32 @@ class Statement extends Component {
     }
 
     render(){
-        let numberRows = [5,10,25,50,this.state.filas];
+        let numberRows = [5,10,25,50,this.state.rows];
         return(
             <div>
                 <TableContainer>
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell className={classes.Header} align="center"><span>Tipo</span></TableCell>
-                                <TableCell className={classes.Header} align="center"><span>Monto</span></TableCell>
-                                <TableCell className={classes.Header} align="center"><span>Opciones</span></TableCell>
+                                <TableCell className={classes.Header} align="center"><span>Type</span></TableCell>
+                                <TableCell className={classes.Header} align="center"><span>Amount</span></TableCell>
+                                <TableCell className={classes.Header} align="center"><span>Options</span></TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             <StatementItem statementList = {this.state.statements} 
                                             loader = {this.state.loading} 
-                                            pagina = {this.state.pagina} 
-                                            filasPorPagina = {this.state.filasPorPagina}
+                                            pagina = {this.state.page} 
+                                            filasPorPagina = {this.state.rowsPerPage}
                                             removeStatement = {this.eliminateItem}/>
                         </TableBody>
                     </Table>
                 </TableContainer>
                 <TablePagination
                     classSection="PaginationStatement"
-                    rows={this.state.filas}
-                    rowsPage={this.state.filasPorPagina}
-                    page={this.state.pagina}
+                    rows={this.state.rows}
+                    rowsPage={this.state.rowsPerPage}
+                    page={this.state.page}
                     numberRows={numberRows}
                     changePage={this.handleChangePage}
                     rowsPerPage={this.handleRowsPerPage}

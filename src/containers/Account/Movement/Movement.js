@@ -9,7 +9,6 @@ class Movement extends Component {
         super(props);
         this.state = {
             amount: "",
-            tipoDeposito: '',
             reason:''
         }
     }

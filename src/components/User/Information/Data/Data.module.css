@@ -1,0 +1,11 @@
+.Data{
+    margin: 20px auto;
+}
+.Data p{
+    margin: 0;
+    font-size: 15;
+    margin-left: 20px;
+}
+.Data strong{
+    font-size: 18px;
+}

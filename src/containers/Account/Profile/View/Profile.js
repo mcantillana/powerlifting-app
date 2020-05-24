@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import FormProfile from '../Form/Form';
-import ProfileData from '../../../../components/User/ProfileData/ProfileData';
+import Information from '../../../../components/User/Information/Information';
 import Button from '../../../../components/UI/Button/Button';
 import axios from '../../../../axios';
 
@@ -12,12 +12,6 @@ class Profile extends Component{
     constructor(props){
         super(props);
         this.state = {
-            accountData:{
-                email: '',
-                idnumber: '',
-                lastname: '',
-                name:''
-            },
             exist: false
         };
     }
@@ -29,27 +23,23 @@ class Profile extends Component{
     componentDidMount(){
         axios.get('account/profile.json')
             .then(response => {
-                const res = response.data;
-                if(res){
-                    /*const userData = res.map(key=> {
-                        const profileData = res[key];
-                        return profileData;
+                const data = response.data;
+                if(data){
+                    const profileData = Object.keys(data).map(key => {
+                        return data[key];
                     });
-                    this.setState(
-                        {
-                            accountData: userData,
-                            exist: true
-                        }
-                    );*/
                 }
             });
     }
 
     render(){
-        console.log(this.state.accoundData);
         let profileSection = <FormProfile/>;
         if(this.state.exist){
-            
+            profileSection = Object.keys(this.state.accountData).map(element => {
+                return [...Array( this.state.accountData[element] )].map( (info) => {
+                    return <Information information = {info}/>;
+                } );
+            });
         }
         return(
             <div className={classes.Profile}>

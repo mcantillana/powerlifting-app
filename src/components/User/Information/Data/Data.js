@@ -7,8 +7,8 @@ const data = (props) => {
         <Grid item container className={classes.Data}
                 xs={12} 
                 sm={6}>
-                <strong>{subtitleCapitalized}:</strong>
-                <p>{props.dataValue}</p>
+                <strong>{props.subtitle}:</strong>
+                <p>{props.value}</p>
         </Grid>
     );
 }

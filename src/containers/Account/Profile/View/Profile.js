@@ -12,6 +12,7 @@ class Profile extends Component{
     constructor(props){
         super(props);
         this.state = {
+            information: {},
             exist: false
         };
     }
@@ -26,7 +27,13 @@ class Profile extends Component{
                 const data = response.data;
                 if(data){
                     const profileData = Object.keys(data).map(key => {
-                        return data[key];
+                        return {
+                            profile: data[key]
+                        }
+                    });
+                    this.setState({
+                        exist: true,
+                        information: profileData[0]
                     });
                 }
             });
@@ -35,11 +42,12 @@ class Profile extends Component{
     render(){
         let profileSection = <FormProfile/>;
         if(this.state.exist){
-            profileSection = Object.keys(this.state.accountData).map(element => {
+            profileSection = <Information info = {this.state.information} />
+            /*profileSection = Object.keys(this.state.accountData).map(element => {
                 return [...Array( this.state.accountData[element] )].map( (info) => {
                     return <Information information = {info}/>;
                 } );
-            });
+            });*/
         }
         return(
             <div className={classes.Profile}>

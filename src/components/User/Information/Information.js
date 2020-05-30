@@ -8,8 +8,6 @@ const profileData = (props) => {
     let dataInformation = Object.keys(information).map(function(key) {
         return <Data key = {key} subtitle = {key} value = {information[key]} />;
       })
-    /*let subtitle = props.dataName;
-    let subtitleCapitalized = subtitle.charAt(0).toUpperCase() + subtitle.slice(1);*/
     return (
         <div className={classes.Information}>
             {dataInformation}

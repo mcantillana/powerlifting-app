@@ -10,9 +10,7 @@ class AccountBuilder extends Component{
         super(props);
 
         this.state = {
-            user: {
-                total: 0
-            }
+            total: 0.0
         };
     }
     componentDidMount(){
@@ -43,7 +41,7 @@ class AccountBuilder extends Component{
                 return total;
             })
             .then(total => {
-                let totalAmount = total.toFixed(2);
+                let totalAmount = parseFloat(total.toFixed(2));
                 this.setState({total:totalAmount});
             });
     }

@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 
-import FormProfile from '../Form/Form';
-import Information from '../../../../components/User/Information/Information';
 import Button from '../../../../components/UI/Button/Button';
 import axios from '../../../../axios';
-import loader from '../../../../assets/gif/loader.gif';
+import Section from '../../../../components/User/Section/Section';
 
 import Grid from '@material-ui/core/Grid';
 import classes from './Profile.module.css';
@@ -13,10 +11,9 @@ class Profile extends Component{
     constructor(props){
         super(props);
         this.state = {
-            information: {},
-            exist: false
+            information: {}
         };
-    }
+    }   
 
     returnBack = () => {
         this.props.history.goBack();
@@ -33,7 +30,6 @@ class Profile extends Component{
                         }
                     });
                     this.setState({
-                        exist: true,
                         information: profileData[0]
                     });
                 }
@@ -45,15 +41,6 @@ class Profile extends Component{
     }
 
     render(){
-        let profileSection = <FormProfile/>;
-        let information = this.state.information;
-        if(this.isEmptyInformation(information) && !this.state.exist) {
-            profileSection = <img src = {loader} alt="Cargando..." width="60"/>;
-        }
-
-        if(this.state.exist){
-            profileSection = <Information info = {this.state.information} />
-        }
         return(
             <div className={classes.Profile}>
                 <Grid className={classes.Container} container
@@ -61,7 +48,7 @@ class Profile extends Component{
                         direction="column"
                         alignItems="center"
                         justify="center">
-                    {profileSection}
+                    <Section profileData = {this.state.information}/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
                 </Grid>
                 <Grid container className={classes.Buttons}
                     spacing={0}

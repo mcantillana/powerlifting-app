@@ -11,7 +11,8 @@ class Profile extends Component{
     constructor(props){
         super(props);
         this.state = {
-            information: {}
+            information: {},
+            loader: false
         };
     }   
 
@@ -22,7 +23,7 @@ class Profile extends Component{
     componentDidMount(){
         axios.get('account/profile.json')
             .then(response => {
-                const data = response.data;
+                /*const data = response.data;
                 if(data){
                     const profileData = Object.keys(data).map(key => {
                         return {
@@ -32,7 +33,31 @@ class Profile extends Component{
                     this.setState({
                         information: profileData[0]
                     });
+                }*/
+                let size = 0;
+                if(response.data) {
+                    size = Object.getOwnPropertyNames(response.data).length;
                 }
+                return [response.data, size];
+            })
+            .then(([response, size]) => {
+                const _keys = Object.keys(response);
+                const newResponse = _keys.map(key => {
+                    return {
+                        profile: response[key]
+                    };
+                });
+                return [newResponse, size];
+            })
+            .then(([response, size]) => {
+                let flag  = false;
+                if(size > 0){
+                    flag = true;
+                }
+                this.setState({
+                    information: response[0],
+                    loader: flag
+                })
             });
     }
 
@@ -48,7 +73,7 @@ class Profile extends Component{
                         direction="column"
                         alignItems="center"
                         justify="center">
-                    <Section profileData = {this.state.information}/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                    <Section profileData = {this.state.information} loader = {this.state.loader} />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
                 </Grid>
                 <Grid container className={classes.Buttons}
                     spacing={0}

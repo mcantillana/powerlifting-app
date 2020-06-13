@@ -12,7 +12,8 @@ class Profile extends Component{
         super(props);
         this.state = {
             information: {},
-            loader: true
+            loader: true,
+            exist: false
         };
     }   
 
@@ -24,34 +25,32 @@ class Profile extends Component{
         axios.get('account/profile.json')
             .then(response => {
                 let size = 0;
+                let data = [];
                 if(response.data) {
+                    data = response.data;
                     size = Object.getOwnPropertyNames(response.data).length;
                 }
-                return [response.data, size];
+                return [data, size];
             })
             .then(([response, size]) => {
-                let found = false;
-                let newResponse = [];
-                if(size > 0) {
-                    found = true;
-                    const _keys = Object.keys(response);
-                    const newResponse = _keys.map(key => {
-                        return {
-                            profile: response[key]
-                        };
-                    });
-                }
+                const _keys = Object.keys(response);
+                const newResponse = _keys.map(key => {
+                    return {
+                        profile: response[key]
+                    };
+                });
                 
-                return [newResponse, found];
+                return [newResponse, size];
             })
-            .then(([response, found]) => {
+            .then(([response, size]) => {
                 let flag  = false;
-                if(found){
+                if(size > 0){
                     flag = false;
                 }
                 this.setState({
                     information: response[0],
-                    loader: flag
+                    loader: flag,
+                    exist: (size > 0) ? true:false
                 })
             });
     }
@@ -69,7 +68,8 @@ class Profile extends Component{
                         alignItems="center"
                         justify="center">
                     <Section profileData = {this.state.information} 
-                    loader = {this.state.loader} />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                    loader = {this.state.loader}
+                    exist = {this.state.exist} />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
                 </Grid>
                 <Grid container className={classes.Buttons}
                     spacing={0}

@@ -30,10 +30,12 @@ class Statement extends Component {
         axios.get('movimientos.json')
             .then(response => {
                 let size = 0;
+                let data = [];
                 if(response.data){
                     size = Object.getOwnPropertyNames(response.data).length;
+                    data = response.data;
                 }
-                return [response.data, size];
+                return [data, size];
             })
             .then(([response, size]) => {
                 const _keys = Object.keys(response);

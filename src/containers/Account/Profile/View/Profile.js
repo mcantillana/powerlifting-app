@@ -12,7 +12,7 @@ class Profile extends Component{
         super(props);
         this.state = {
             information: {},
-            loader: false
+            loader: true
         };
     }   
 
@@ -23,17 +23,6 @@ class Profile extends Component{
     componentDidMount(){
         axios.get('account/profile.json')
             .then(response => {
-                /*const data = response.data;
-                if(data){
-                    const profileData = Object.keys(data).map(key => {
-                        return {
-                            profile: data[key]
-                        }
-                    });
-                    this.setState({
-                        information: profileData[0]
-                    });
-                }*/
                 let size = 0;
                 if(response.data) {
                     size = Object.getOwnPropertyNames(response.data).length;
@@ -41,18 +30,24 @@ class Profile extends Component{
                 return [response.data, size];
             })
             .then(([response, size]) => {
-                const _keys = Object.keys(response);
-                const newResponse = _keys.map(key => {
-                    return {
-                        profile: response[key]
-                    };
-                });
-                return [newResponse, size];
+                let found = false;
+                let newResponse = [];
+                if(size > 0) {
+                    found = true;
+                    const _keys = Object.keys(response);
+                    const newResponse = _keys.map(key => {
+                        return {
+                            profile: response[key]
+                        };
+                    });
+                }
+                
+                return [newResponse, found];
             })
-            .then(([response, size]) => {
+            .then(([response, found]) => {
                 let flag  = false;
-                if(size > 0){
-                    flag = true;
+                if(found){
+                    flag = false;
                 }
                 this.setState({
                     information: response[0],
@@ -61,9 +56,9 @@ class Profile extends Component{
             });
     }
 
-    isEmptyInformation (info) {
+    /*isEmptyInformation (info) {
         return Object.keys(info).length === 0;
-    }
+    }*/
 
     render(){
         return(
@@ -73,7 +68,8 @@ class Profile extends Component{
                         direction="column"
                         alignItems="center"
                         justify="center">
-                    <Section profileData = {this.state.information} loader = {this.state.loader} />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+                    <Section profileData = {this.state.information} 
+                    loader = {this.state.loader} />                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
                 </Grid>
                 <Grid container className={classes.Buttons}
                     spacing={0}

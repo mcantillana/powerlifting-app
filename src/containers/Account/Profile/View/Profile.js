@@ -11,7 +11,7 @@ class Profile extends Component{
     constructor(props){
         super(props);
         this.state = {
-            information: {},
+            information: [],
             loader: true,
             exist: false
         };
@@ -54,10 +54,6 @@ class Profile extends Component{
                 })
             });
     }
-
-    /*isEmptyInformation (info) {
-        return Object.keys(info).length === 0;
-    }*/
 
     render(){
         return(

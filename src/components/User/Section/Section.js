@@ -6,13 +6,11 @@ import loader from '../../../assets/gif/loader.gif';
 
 const  section = (props) => {
     let information = props.profileData;
-    //let tam = Object.keys(information).length;
     let exist = props.exist;
     let profileSection = [];
     if(information){
         profileSection = <Information info = {information} />;
     }
-    console.log(props.loader + " " + exist);
     if(props.loader) { 
         profileSection = <img src = {loader} alt = "Cargando..." />;
     }

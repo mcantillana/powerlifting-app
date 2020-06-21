@@ -76,7 +76,9 @@ class Form extends Component {
                 this.props.history.push('/profile');
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.response);
+                console.log(error.request);
+                console.log(error.message);
             });
     }
 

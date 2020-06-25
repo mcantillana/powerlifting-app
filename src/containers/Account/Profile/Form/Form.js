@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import classes from './Form.module.css';
 
+
 import Input from '../../../../components/UI/Input/Input';
 import Button from '../../../../components/UI/Button/Button';
 import axios from '../../../../axios';
@@ -73,7 +74,7 @@ class Form extends Component {
         });
         axios.post('account/profile.json', formData)
             .then(response => {
-                this.props.history.push('/profile');
+                window.location.reload();
             })
             .catch(error => {
                 console.log(error.response);

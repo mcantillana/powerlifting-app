@@ -58,7 +58,8 @@ class Form extends Component {
                     },
                     value: '',
                     validation: {
-                        required: true
+                        required: true,
+                        type: 'email'
                     }
                 }
             },

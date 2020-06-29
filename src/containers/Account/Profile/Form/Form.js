@@ -23,7 +23,9 @@ class Form extends Component {
                     value: '',
                     validation: {
                         required: true
-                    }
+                    },
+                    valid: false,
+                    touched: false
                 },
                 lastname: {
                     label: 'Lastname',
@@ -35,7 +37,9 @@ class Form extends Component {
                     value: '',
                     validation: {
                         required: true
-                    }
+                    },
+                    valid: false,
+                    touched: false
                 },
                 idnumber: {
                     label: 'ID Number',
@@ -47,7 +51,10 @@ class Form extends Component {
                     value: '',
                     validation: {
                         required: true,
-                    }
+                        type: "digit"
+                    },
+                    valid: false,
+                    touched: false
                 },
                 email: {
                     label: 'Email',
@@ -60,11 +67,29 @@ class Form extends Component {
                     validation: {
                         required: true,
                         type: 'email'
-                    }
+                    },
+                    valid: false,
+                    touched: false
                 }
             },
             formIsValid: false
         }
+    }
+
+    checkValidity(value, rules) { 
+        let isValid = true;
+        if(rules.required) { 
+            isValid = value.trim() !== '' && isValid;
+        }
+        if(rules.digit) { 
+            const regex = /^\d+$/;
+            isValid = regex.test(value) && isValid;
+        }
+        if(rules.email) { 
+            const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            isValid = regex.test(String(value).toLowerCase()) && isValid;
+        }
+        return isValid;
     }
 
     saveProfileData = (event) => {
@@ -92,6 +117,8 @@ class Form extends Component {
             ...updatedProfileForm[inputField]
         }
         updatedInputFIeld.value = event.target.value;
+        updatedInputFIeld.valid = this.checkValidity(updatedInputFIeld.value, updatedInputFIeld.validation);
+        updatedInputFIeld.touched = true;
         updatedProfileForm[inputField] = updatedInputFIeld;
         this.setState({profileForm: updatedProfileForm})
     }
@@ -112,6 +139,9 @@ class Form extends Component {
                         elementType = {formElement.config.elementType} 
                         elementConfig = {formElement.config.elementConfig}
                         value = {formElement.config.value}
+                        invalid = {!formElement.config.valid}
+                        shouldValidate = {formElement.connfig.validation}
+                        touched = {formElement.config.touched}
                         change = {(event) => this.inputChangeHandler(event, formElement.id)}/>
                 )}
                 <Button btnType="submitProfile">REGISTER</Button>

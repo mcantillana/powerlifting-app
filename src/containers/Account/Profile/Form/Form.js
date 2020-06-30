@@ -120,7 +120,12 @@ class Form extends Component {
         updatedInputFIeld.valid = this.checkValidity(updatedInputFIeld.value, updatedInputFIeld.validation);
         updatedInputFIeld.touched = true;
         updatedProfileForm[inputField] = updatedInputFIeld;
-        this.setState({profileForm: updatedProfileForm})
+
+        let formIsValid = true;
+        for(let input in updatedProfileForm) {
+            formIsValid = updatedProfileForm[input].valid && formIsValid;
+        }
+        this.setState({profileForm: updatedProfileForm, formIsValid: formIsValid})
     }
 
     render() {
@@ -140,11 +145,11 @@ class Form extends Component {
                         elementConfig = {formElement.config.elementConfig}
                         value = {formElement.config.value}
                         invalid = {!formElement.config.valid}
-                        shouldValidate = {formElement.connfig.validation}
+                        shouldValidate = {formElement.config.validation}
                         touched = {formElement.config.touched}
                         change = {(event) => this.inputChangeHandler(event, formElement.id)}/>
                 )}
-                <Button btnType="submitProfile">REGISTER</Button>
+                <Button btnType="submitProfile" disabled = {!this.state.formIsValid}>REGISTER</Button>
             </form>
         ) 
     }

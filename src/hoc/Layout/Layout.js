@@ -18,7 +18,9 @@ const Layout = (props) => {
         <div>
             <Toolbar/>
             <SideDrawer/>
-            {props.children}
+            <main>
+                {props.children}
+            </main>
         </div>
     )
 }

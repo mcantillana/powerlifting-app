@@ -1,6 +1,11 @@
+import NavigationItems from '../NavigationItems/NavigationItems';
 const toolbar = (props) => {
     return (
-        <div>Toolbar</div>
+       <header>
+           <nav>
+                <NavigationItems/>
+           </nav>
+       </header>
     )
 };
 export default toolbar;

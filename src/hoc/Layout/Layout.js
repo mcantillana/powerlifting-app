@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 
 const Layout = (props) => {
-
-    const[sideDrawerIsVisible, setSideDrawerIsVisible] = useState(false);
-
-    const sideDrawerClosedHandler = () => {
-        setSideDrawerIsVisible(false);
-    }
-
-    const sideDrawerToggleHandler = () => {
-        setSideDrawerIsVisible(!setSideDrawerIsVisible);
-    }
-
+    let routes = (
+        <Switch>
+            <Route path="/" render={() => <div>Home</div>}/>
+            <Route path="/one" render={() => <div>Uno</div>}/>
+            <Route path="/two" render={() => <div>Dos</div>}/>
+        </Switch>
+    );
     return (
         <div>
             <Toolbar/>
@@ -21,6 +18,7 @@ const Layout = (props) => {
             <main>
                 {props.children}
             </main>
+            {routes}
         </div>
     )
 }

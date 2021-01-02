@@ -5,6 +5,12 @@
     top: 0;
     left: 0;
     background-color: #FC1919;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
 }
 .Toolbar nav{
     height: 100%;

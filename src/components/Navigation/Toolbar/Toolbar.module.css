@@ -1,3 +1,9 @@
 .Toolbar {
-    flexGrow: 1;
+    flex-grow: 1;
+}
+.Toolbar nav {
+    height: 100%;                                                               
+}
+.Toolbar .rightToolbar {
+    margin-left: auto;
 }

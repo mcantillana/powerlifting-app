@@ -1,0 +1,13 @@
+.NavigationItem {
+    margin-left: 20px;
+    float: left;
+}
+
+.NavigationItem a {
+    font-size: 23px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}

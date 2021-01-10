@@ -5,10 +5,11 @@ import {NavLink} from 'react-router-dom';
 const NavigationItem = (props) => {
     return (
         <li className={classes.NavigationItem}>
-            <NavLink to = {props.link}
+            <NavLink 
+                to = {props.link}
                 exact = {props.exact}>
                     {props.children}
-                </NavLink>
+            </NavLink>
         </li>
     )
 }

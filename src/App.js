@@ -7,7 +7,7 @@ import Two from './components/Two/Two';
 function App() {
   let routes = (
       <Switch>
-          <Route path="/" render={() => <div>Home</div>}/>
+          <Route path="/" exact render={() => <div>Home</div>}/>
           <Route path="/one">
               <One/>
           </Route>

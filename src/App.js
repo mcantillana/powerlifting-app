@@ -1,13 +1,25 @@
-import './App.css';
+import React, {Suspense} from 'react';
+import {Route, Switch} from 'react-router-dom';
 import Layout from './hoc/Layout/Layout';
+import One from './components/One/One';
+import Two from './components/Two/Two';
 
 function App() {
+  let routes = (
+      <Switch>
+          <Route path="/" render={() => <div>Home</div>}/>
+          <Route path="/one">
+              <One/>
+          </Route>
+          <Route path="/two">
+              <Two/>
+          </Route>
+      </Switch>
+  );
   return (
-    <div className="App">
+    <div>
       <Layout>
-        <div>
-          Contenido
-        </div>
+        <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
       </Layout>
     </div>
   );

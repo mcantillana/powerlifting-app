@@ -1,0 +1,11 @@
+.Paper {
+    max-width: 600px;
+    margin: auto;
+}
+.Paper .Data {
+    text-align: center;
+    font-size: 180px;
+}
+.Paper .Data span{
+    padding: 0 10px;
+}

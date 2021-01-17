@@ -1,10 +1,11 @@
 import {React}  from 'react';
 import Aux from '../../hoc/Aux/Aux';
+import Weight from '../../components/Weight/Weight';
 
 const PanelLifting = (props) => {
     return (
         <Aux>
-            <h1>Panel Lifting</h1>
+            <Weight/>
         </Aux>
     );
 }

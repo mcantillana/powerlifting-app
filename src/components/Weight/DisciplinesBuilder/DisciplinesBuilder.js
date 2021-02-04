@@ -1,5 +1,6 @@
 import React from 'react';
 import DisciplineControl from './DisciplineControl/DisciplineControl';
+import classes from './DisciplinesBuilder.module.css';
 
 const disciplines = [
     { label: 'Squat', type: 'squat'},
@@ -9,7 +10,7 @@ const disciplines = [
 
 const disciplinesBuilder = (props) => {
     return (
-        <div>
+        <div className={classes.DisciplinesBuilder}>
             <DisciplineControl/>
             <button>REGISTRAR PESO</button>
         </div>

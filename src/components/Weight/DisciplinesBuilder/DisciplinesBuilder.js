@@ -12,7 +12,7 @@ const disciplinesBuilder = (props) => {
     return (
         <div className={classes.DisciplinesBuilder}>
             <DisciplineControl/>
-            <button>REGISTRAR PESO</button>
+            <button className={classes.WeightButton}>REGISTRAR PESO</button>
         </div>
     );
 };

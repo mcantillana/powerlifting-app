@@ -1,8 +1,8 @@
 .Toolbar {
     flex-grow: 1;
 }
-.Toolbar nav {
-    height: 100%;                                                               
+.Toolbar header{
+    background-color: #ff0000;
 }
 .Toolbar .rightToolbar {
     margin-left: auto;

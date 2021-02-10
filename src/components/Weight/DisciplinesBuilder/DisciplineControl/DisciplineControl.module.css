@@ -1,0 +1,29 @@
+.DisciplineControl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+.DisciplineControl .Label {
+    padding: 10px;
+    font-weight: bold;
+    width: 80px;
+}
+.DisciplineControl button {
+    display: block;
+    font: inherit;
+    padding: 5px;
+    margin: 0 5px;
+    width: 80px;
+    border: 1px solid #EB0E0E;
+    cursor: pointer;
+    outline: none;
+}
+.DisciplineControl .Less {
+    background-color: #FF0000;
+    color: white;
+}
+.DisciplineControl .More {
+    background-color: #FF0000;
+    color: white;
+}

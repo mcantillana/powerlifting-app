@@ -1,11 +1,13 @@
 import React from 'react';
 
+import classes from './DisciplineControl.module.css';
+
 const disciplineControl = (props) => {
     return (
-        <div>
-            <label>0</label>
-            <button>Subir</button>
-            <button>Bajar</button>
+        <div className={classes.DisciplineControl}>
+            <div className={classes.Label}>0</div>
+            <button className={classes.More}>Subir</button>
+            <button className={classes.Less}>Bajar</button>
         </div>
     )
 }

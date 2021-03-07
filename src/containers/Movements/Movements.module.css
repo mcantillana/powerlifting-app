@@ -1,0 +1,13 @@
+.MovGrid {
+    display: inherit;
+}
+.Movement {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 35px;
+    background: linear-gradient(90deg, rgba(70,24,24,1) 0%, rgba(255,6,6,1) 75%);;
+    color: #FFFFFF;
+    padding: 100px 100px 100px 100px;
+    margin: 100px auto;
+}

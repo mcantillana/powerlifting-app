@@ -1,13 +1,12 @@
 import React, {Suspense} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Layout from './hoc/Layout/Layout';
-import PanelLifting from './containers/PanelLifting/PanelLifting';
-
+import Movements from './containers/Movements/Movements';
 
 function App() {
   let routes = (
       <Switch>
-          <Route path="/" exact component={PanelLifting}/>
+          <Route path="/" exact component={Movements}/>
       </Switch>
   );
   return (

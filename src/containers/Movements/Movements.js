@@ -14,7 +14,7 @@ class Movements extends Component {
                     direction="row"
                     justify="center"
                     alignItems="center">
-                    <Grid xs={12} md={4} className={classes.MovGrid}>
+                    <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
                         <Link className={classes.Movement} 
                             to= {
                                 {
@@ -25,7 +25,7 @@ class Movements extends Component {
                                 Bench Press
                         </Link>
                     </Grid>
-                    <Grid xs={12} md={4} className={classes.MovGrid}>
+                    <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
                         <Link className={classes.Movement} 
                             to= {
                                 {
@@ -36,7 +36,7 @@ class Movements extends Component {
                                 Squat
                         </Link>
                     </Grid>
-                    <Grid xs={12} md={4} className={classes.MovGrid}>
+                    <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
                         <Link className={classes.Movement} 
                             to= {
                                 {

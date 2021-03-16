@@ -8,9 +8,7 @@ function App() {
   let routes = (
       <Switch>
           <Route path="/" exact component={Movements}/>
-          <Route path="/bench-press" component={Movement}/>
-          <Route path="/deadlift" component={Movement}/>
-          <Route path="/squat" component={Movement}/>
+          <Route path="/movements/:movement" component={Movement}/>
       </Switch>
   );
   return (

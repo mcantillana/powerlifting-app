@@ -16,34 +16,19 @@ class Movements extends Component {
                     alignItems="center">
                     <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
                         <Link className={classes.Movement} 
-                            to= {
-                                {
-                                pathname: '/bench-press',
-                                mov: 'Bench-Press'
-                                }
-                            }>
+                            to= "/movements/bench-press">
                                 Bench Press
                         </Link>
                     </Grid>
                     <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
                         <Link className={classes.Movement} 
-                            to= {
-                                {
-                                pathname: '/squat',
-                                mov: 'Squat'
-                                }
-                            }>
+                            to="/movements/squat">
                                 Squat
                         </Link>
                     </Grid>
                     <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
                         <Link className={classes.Movement} 
-                            to= {
-                                {
-                                pathname: '/deadlift',
-                                mov: 'Deadlift'
-                                }
-                            }>
+                            to= "/movements/deadlift">
                                 Deadlift
                         </Link>
                     </Grid>

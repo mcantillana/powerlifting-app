@@ -1,4 +1,6 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
+
 import Aux from '../Aux/Aux';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
@@ -10,7 +12,9 @@ const Layout = (props) => {
             <Toolbar/>
             <SideDrawer/>
             <main className={classes.Content}>
-                {props.children}
+                <Container fixed>
+                    {props.children}
+                </Container>
             </main>
         </Aux>
     )

@@ -1,6 +1,6 @@
-
 import React, {useState} from 'react';
 
+import classes from './WeightData.module.css';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import {updateObject, checkValidity} from '../../shared/utility';
@@ -10,11 +10,12 @@ const WeightData = (props) => {
         weight: {
             elementType: 'input',
             elementConfig: {
+                variant: "outlined",
+                label: "Peso",
                 type: 'number',
-                placeholder: 'Insert Weight'
+                placeholder: 'Insert Weight',
             },
             value: '0',
-            label: 'Peso',
             validation: {
                 required: 'true',
                 isPositive: 'true'
@@ -50,7 +51,6 @@ const WeightData = (props) => {
             config: weightForm[key]
         });
     }
-    console.log(formElementsArray);
     let form = (
         <form>
             {formElementsArray.map(formElement => (
@@ -60,7 +60,7 @@ const WeightData = (props) => {
                     elementType={formElement.config.elementType} 
                     elementConfig={formElement.config.elementConfig}
                     value={formElement.config.value}
-                    invalid={!formElement.config.validation}
+                    invalid={!formElement.config.valid}
                     shouldValidate={formElement.config.validation} 
                     touched={formElement.config.touched}
                     changed={(event) => inputChangeHandler(event, formElement.id)} 
@@ -70,7 +70,7 @@ const WeightData = (props) => {
         </form>
     );
     return (
-        <div>
+        <div className={classes.WeightData}>
             <h4>Peso a Levantar</h4>
             {form}
         </div>

@@ -1,11 +1,19 @@
 import React from 'react';
-//import classes from './input.module.css';
+import TextField from '@material-ui/core/TextField';
+import classes from './Input.module.css';
 
 const input = (props) => {
     let inputElement = null;
+    let errorVal = false;
+    if(props.shouldValidate && props.invalid && props.touched){
+        errorVal = true;
+    }
+    
     switch(props.elementType){
         case 'input':
-            inputElement = <input {...props.elementConfig}
+            inputElement = <TextField
+                            error={errorVal}
+                            {...props.elementConfig}
                             value={props.value} 
                             onChange={props.changed} />;
             break;
@@ -16,8 +24,7 @@ const input = (props) => {
             break;
     }
     return (
-        <div>
-            <label>{props.label}</label>
+        <div className={classes.Input}>
             {inputElement}
         </div>
     );

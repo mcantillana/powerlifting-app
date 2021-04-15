@@ -5,31 +5,34 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import { makeStyles } from '@material-ui/core/styles';
 
-const sideDrawer = (props) => {
+const useStyles = makeStyles({
+    paper: {
+      background: 'red',
+      color: 'black'
+    }
+  });
+const SideDrawer = (props) => {
+    const styles = useStyles();
     return (
-        <Drawer anchor={"left"} open={true}>
+        
+        <Drawer classes={{ paper: styles.paper }} anchor={"left"} open={true}>
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                <ListItem button key={text}>
-                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                    <ListItemText primary={text} />
+                <ListItem button>
+                    <ListItemIcon><ReceiptIcon/></ListItemIcon>
+                    <ListItemText primary="Historial" />
                 </ListItem>
-                ))}
+                <ListItem button>
+                    <ListItemIcon><AccessibilityNewIcon/></ListItemIcon>
+                    <ListItemText primary="Movimientos" />
+                </ListItem>
             </List>
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                <ListItem button key={text}>
-                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                    <ListItemText primary={text} />
-                </ListItem>
-                ))}
-            </List>
         </Drawer>
     );
 };
 
-export default sideDrawer;
+export default SideDrawer;

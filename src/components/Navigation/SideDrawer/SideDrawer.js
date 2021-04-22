@@ -18,8 +18,7 @@ const useStyles = makeStyles({
 const SideDrawer = (props) => {
     const styles = useStyles();
     return (
-        
-        <Drawer classes={{ paper: styles.paper }} anchor={"left"} open={true}>
+        <Drawer classes={{ paper: styles.paper }} anchor={"left"} open={props.closed}>
             <List>
                 <ListItem button>
                     <ListItemIcon><ReceiptIcon/></ListItemIcon>

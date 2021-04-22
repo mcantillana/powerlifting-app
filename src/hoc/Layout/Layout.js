@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
 
 import Aux from '../Aux/Aux';
@@ -7,10 +7,19 @@ import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import classes from './Layout.module.css';
 
 const Layout = (props) => {
+    const [sideDrawerVisible, setSideDrawerVisible] = useState(false);
+
+    const sideDrawerClosedHandler = () => {
+        setSideDrawerVisible(false);
+    };
+
+    const sideDrawerToggleHandler = () => {
+        setSideDrawerVisible(!sideDrawerVisible);
+    };
     return (
         <Aux>
-            <Toolbar/>
-            <SideDrawer/>
+            <Toolbar clicked = {sideDrawerToggleHandler} />
+            <SideDrawer closed = {sideDrawerVisible}/>
             <main className={classes.Content}>
                 <Container fixed>
                     {props.children}

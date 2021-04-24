@@ -14,12 +14,12 @@ const Layout = (props) => {
     };
 
     const sideDrawerToggleHandler = () => {
-        setSideDrawerVisible(!sideDrawerVisible);
+        setSideDrawerVisible(true);
     };
     return (
         <Aux>
             <Toolbar clicked = {sideDrawerToggleHandler} />
-            <SideDrawer closed = {sideDrawerVisible}/>
+            <SideDrawer open = {sideDrawerVisible}/>
             <main className={classes.Content}>
                 <Container fixed>
                     {props.children}

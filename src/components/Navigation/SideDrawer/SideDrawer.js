@@ -1,61 +1,72 @@
-import React,{ useState } from 'react';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
+import React from 'react';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ReceiptIcon from '@material-ui/icons/Receipt';
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
-import { makeStyles } from '@material-ui/core/styles';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
+import List from '@material-ui/core/List';
+import Drawer from '@material-ui/core/Drawer';
 
-const useStyles = makeStyles({
-    paper: {
-      background: 'red',
-      color: 'black'
+const drawerWidth = 200;
+
+const useStyles = makeStyles( (theme) => ({
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+        background: '#FF0000',
+        color: '#FFFFFF'
     },
     drawerHeader: {
         display: 'flex',
         alignItems: 'center',
+        padding: theme.spacing(0, 1),
+        // necessary for content to be below app bar
+        ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
-    }
-  });
-
+    },
+    drawerIcon: {
+        color:'#FFFFFF'
+    },
+}));
 const SideDrawer = (props) => {
-    console.log(props.open);
-    const styles = useStyles();
-    const [open, setOpen] = useState(false);
+    const classes = useStyles();
+    const theme = useTheme();
 
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handleDrawerClose = () => {
-        setOpen(false);
-    }
     return (
-        <Drawer classes={{ paper: styles.paper }} anchor={"left"} open={props.open}>
-            <div className={{ drawerHeader: styles.drawerHeader }}>
-                <IconButton onClick={handleDrawerClose}>
-                    <ChevronLeftIcon/>
+        <Drawer
+        className={classes.drawer}
+        variant="persistent"
+        anchor="left"
+        open={props.openDrawer}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+      >
+            <div className={classes.drawerHeader}>
+                <IconButton onClick={props.drawerClose}>
+                    {theme.direction === 'ltr' ? <ChevronLeftIcon className={classes.drawerIcon} /> : <ChevronRightIcon className={classes.drawerIcon} />}
                 </IconButton>
             </div>
+            <Divider />
             <List>
                 <ListItem button>
-                    <ListItemIcon><ReceiptIcon/></ListItemIcon>
+                    <ListItemIcon><ReceiptIcon className={classes.drawerIcon}/></ListItemIcon>
                     <ListItemText primary="Historial" />
                 </ListItem>
                 <ListItem button>
-                    <ListItemIcon><AccessibilityNewIcon/></ListItemIcon>
+                    <ListItemIcon><AccessibilityNewIcon className={classes.drawerIcon}/></ListItemIcon>
                     <ListItemText primary="Movimientos" />
                 </ListItem>
             </List>
-            <Divider />
         </Drawer>
     );
-};
-
+}
 export default SideDrawer;

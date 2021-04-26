@@ -33,22 +33,13 @@ export default Layout;*/
 import React,{useState} from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import ReceiptIcon from '@material-ui/icons/Receipt';
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
 
 const drawerWidth = 200;
 
@@ -76,26 +67,6 @@ const useStyles = makeStyles((theme) => ({
   },
   hide: {
     display: 'none',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-    background: '#FF0000',
-    color: '#FFFFFF'
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-  },
-  drawerIcon: {
-    color:'#FFFFFF'
   },
   content: {
     flexGrow: 1,
@@ -152,32 +123,7 @@ const Layout = (props) => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="persistent"
-        anchor="left"
-        open={open}
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? <ChevronLeftIcon className={classes.drawerIcon} /> : <ChevronRightIcon className={classes.drawerIcon} />}
-          </IconButton>
-        </div>
-        <Divider />
-        <List>
-            <ListItem button>
-                <ListItemIcon><ReceiptIcon className={classes.drawerIcon}/></ListItemIcon>
-                <ListItemText primary="Historial" />
-            </ListItem>
-            <ListItem button>
-                <ListItemIcon><AccessibilityNewIcon className={classes.drawerIcon}/></ListItemIcon>
-                <ListItemText primary="Movimientos" />
-            </ListItem>
-        </List>
-      </Drawer>
+      <SideDrawer openDrawer={open} drawerClose={handleDrawerClose}/>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,

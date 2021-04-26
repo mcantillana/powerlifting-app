@@ -1,29 +1,3 @@
-/*import React from 'react';
-import NavigationItems from '../NavigationItems/NavigationItems';
-import classes from './Toolbar.module.css';
-
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-
-const toolbar = (props) => {
-    return (
-        <div className={classes.Toolbar}>
-            <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="menu" onClick={props.clicked}>
-                        <MenuIcon />
-                    </IconButton>
-                    <section className={classes.rightToolbar}>
-                        <NavigationItems/>
-                    </section>
-                </Toolbar>
-            </AppBar>
-        </div>
-    );
-};
-export default toolbar;*/
 import React from 'react';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
@@ -32,6 +6,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+
+import NavigationItems from '../NavigationItems/NavigationItems';
+
 
 const drawerWidth = 200;
 
@@ -56,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     },
     hide: {
         display: 'none',
+    },
+    rightLinks: {
+        marginLeft: 'auto',
     }
 }));
 
@@ -81,6 +61,9 @@ const CToolbar = (props) => {
                 <Typography variant="h6" noWrap>
                     Powerlifting
                 </Typography>
+                <section className={classes.rightLinks}>
+                    <NavigationItems/>
+                </section>
             </Toolbar>
         </AppBar>
     )

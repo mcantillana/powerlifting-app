@@ -1,9 +1,0 @@
-.Toolbar {
-    flex-grow: 1;
-}
-.Toolbar header{
-    background-color: #FF0000;
-}
-.Toolbar .rightToolbar {
-    margin-left: auto;
-}

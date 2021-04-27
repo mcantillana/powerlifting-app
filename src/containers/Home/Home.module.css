@@ -2,14 +2,19 @@
     display: inherit;
 }
 .Movement {
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 35px;
     background: linear-gradient(90deg, rgba(70,24,24,1) 0%, rgba(255,6,6,1) 75%);;
-    color: #FFFFFF;
-    padding: 50px 100px 50px 100px;
+    box-shadow: 0 5px 0 darkred;
+    color: white;
+    border-radius: 35px;
     margin-top: 150px;
-    width: 50%;
-    text-align: center;
+    padding: 50px 100px 50px 100px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor:pointer;
+}
+.Movement:active{
+    box-shadow: none;
+    top: 5px;
+      
 }

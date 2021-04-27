@@ -11,7 +11,8 @@ class Movements extends Component {
             <Grid container 
                 direction="row"
                 justify="center"
-                alignItems="center">
+                alignItems="center"
+                className={classes.Movements}>
                 <Grid xs={12} md={12} className={classes.MovGrid} item={true}>
                     <Link className={classes.Movement} 
                         to= "/movements/bench-press">

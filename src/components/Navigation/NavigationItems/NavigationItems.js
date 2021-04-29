@@ -1,7 +1,18 @@
 import React from 'react';
+import {makeStyles} from '@material-ui/core/styles';
+
 import NavigationItem from './NavigationItem/NavigationItem';
-import classes from './NavigationItems.module.css';
-const navigationItems = (props) => {
+
+const useStyles = makeStyles({
+    NavigationItems: {
+        listStyleType: 'none',
+        margin: 0,
+        padding: 0,
+        overflow: 'hidden',
+    }
+});
+const NavigationItems = (props) => {
+    const classes = useStyles();
     return (
         <ul className={classes.NavigationItems}>
             <NavigationItem exact link="/">Home</NavigationItem>
@@ -10,4 +21,4 @@ const navigationItems = (props) => {
         </ul>
     )
 }
-export default navigationItems;
+export default NavigationItems;

@@ -1,11 +1,23 @@
 import React, {useState} from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 
-import classes from './WeightData.module.css';
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import {updateObject, checkValidity} from '../../shared/utility';
 
+const useStyles = makeStyles({
+    WeightData: {
+        margin: "20px auto",
+        width: "40%",
+        textAlign: "center",
+        boxShadow: "0 2px 3px #CCC",
+        border: "1px solid #EEE",
+        padding: "10px",
+        boxSizing: "border-box"
+    }
+});
 const WeightData = (props) => {
+    const classes = useStyles();
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'input',

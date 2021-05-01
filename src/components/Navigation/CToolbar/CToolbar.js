@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
+import { useTheme, useMediaQuery } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -41,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
 
 const CToolbar = (props) => {
     const classes = useStyles();
+    const theme = useTheme();
+    const showMenuIcon = useMediaQuery(theme.breakpoints.up('sm'));
     return (
         <AppBar
         position="fixed"
@@ -49,15 +52,18 @@ const CToolbar = (props) => {
         })}
         >
             <Toolbar>
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    onClick={props.drawerOpen}
-                    edge="start"
-                    className={clsx(classes.menuButton, props.openDrawer && classes.hide)}
-                >
-                    <MenuIcon />
-                </IconButton>
+                {!showMenuIcon && 
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={props.drawerOpen}
+                        edge="start"
+                        className={classes.menuButton}
+                    >
+                        <MenuIcon />
+                    </IconButton>
+                }
+                
                 <Typography variant="h6" noWrap>
                     Powerlifting
                 </Typography>

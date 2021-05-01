@@ -8,7 +8,7 @@ const useStyles = makeStyles({
         float: 'left'
     },
     Item: {
-        fontSize: '20px',
+        fontSize: '17px',
         display: 'block',
         color: 'white',
         textAlign: 'center',

@@ -2,10 +2,9 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Grid from "@material-ui/core/Grid";
 
-//import classes from './Home.module.css';
 import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     MovGrid: {
         display: 'inherit',
     },
@@ -14,18 +13,30 @@ const useStyles = makeStyles({
         boxShadow: '0 5px 0 darkred',
         color: 'white',
         borderRadius: '35px',
-        marginTop: '150px',
-        padding: '50px 100px 50px 100px',
+        padding: '50px 0px',
         position: 'relative',
         textDecoration: 'none',
         textTransform: 'uppercase',
         cursor:'pointer',
+        fontWeight: 'bold',
+        fontSize:'22px',
+        textAlign: 'center',
+        display:"inline-block",
+        [theme.breakpoints.up('md')]: {
+            marginTop: '150px',
+            width: '50%',
+        },
+        [theme.breakpoints.up('xs')]: {
+            margin: '50px auto',
+            width: '75%',
+        },
         '&:active':{
             boxShadow: 'none',
-            top: '5px'        
+            top: '5px'
         }
+        
     },
-});
+}));
 
 const Home = (props) => {
     const classes = useStyles();

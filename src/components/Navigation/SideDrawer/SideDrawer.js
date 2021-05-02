@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
@@ -57,11 +58,11 @@ const SideDrawer = (props) => {
             </div>
             <Divider />
             <List>
-                <ListItem button>
+                <ListItem button component={Link} to="/history">
                     <ListItemIcon><ReceiptIcon className={classes.drawerIcon}/></ListItemIcon>
                     <ListItemText primary="Historial" />
                 </ListItem>
-                <ListItem button>
+                <ListItem button component={Link} to="/movements">
                     <ListItemIcon><AccessibilityNewIcon className={classes.drawerIcon}/></ListItemIcon>
                     <ListItemText primary="Movimientos" />
                 </ListItem>

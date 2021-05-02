@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from "@material-ui/core/Grid";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     Movements: {
-        marginTop: "100px"
+        marginTop: "50px"
     },
     MovGrid: {
         display: "inherit"
@@ -18,17 +18,24 @@ const useStyles = makeStyles({
         margin: "20px auto",
         width: "20%",
         textAlign: "center",
-        padding: "50px 100px 50px 100px",
+        padding: "50px 0px",
         position: "relative",
         textDecoration: "none",
         textTransform: "uppercase",
+        display:"inline-block",
         cursor:"pointer",
+        [theme.breakpoints.up('md')]: {
+            width: '50%',
+        },
+        [theme.breakpoints.up('xs')]: {
+            width: '75%',
+        },
         '&:active':{
             boxShadow: 'none',
             top: '5px'        
         }
     }
-});
+}));
 const Movements = (props) => {
     const classes = useStyles();
     return (

@@ -23,8 +23,7 @@ const NavigationItems = (props) => {
         nItems = (
             <ul className={classes.NavigationItems}>
                 <NavigationItem exact link="/">Home</NavigationItem>
-                <NavigationItem link="/history">Historial</NavigationItem>
-                <NavigationItem link="/movements">Movimientos</NavigationItem>
+                <NavigationItem link="/about">Acerca de</NavigationItem>
             </ul>
         );
     }

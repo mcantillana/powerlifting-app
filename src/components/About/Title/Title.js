@@ -7,8 +7,8 @@ const Title = (props) => {
         <div className={classes.pageHeading}> {/* header-text */}
             <Grid container>
                 <Grid item md={12}>
-                    <h1>About Us</h1>
-                    <span>We have over 20 years of experience</span>
+                    <h1>POWERLIFTING APP</h1>
+                    <span>Levantamiento de potencia</span>
                 </Grid>
             </Grid>
         </div>

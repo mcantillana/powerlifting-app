@@ -23,31 +23,31 @@
 	letter-spacing: 1px;
 }
 
-.team {
+.details {
 	background-color: #f7f7f7;
 	margin-top: 140px;
 	margin-bottom: -140px;
 	padding: 120px 0px;
 }
 
-.teamItem img {
+.detailItem img {
 	width: 100%;
 	overflow: hidden;
 }
 
-.teamItem .downContent {
+.detailItem .downContent {
 	background-color: #fff;
 	padding: 30px;
 }
 
-.teamItem .downContent h4 {
+.detailItem .downContent h4 {
 	font-size: 20px;
 	font-weight: 700;
 	letter-spacing: 0.25px;
 	margin-bottom: 10px;
 }
 
-.teamItem .downContent span {
+.detailItem .downContent span {
 	color: #a4c639;
 	font-weight: 600;
 	font-size: 14px;
@@ -55,12 +55,12 @@
 	margin-bottom: 15px;
 }
 
-.teamItem .downContent p {
+.detailItem .downContent p {
 	margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
-    .team .teamItem {
+    .details .detailItem {
 		margin-bottom: 30px;
 	}
 }

@@ -1,4 +1,4 @@
-.pageHeading {
+.Title {
 	text-align: center;
 	/*background-image: url(../images/page-heading-bg.jpg);*/
 	background-position: center center;
@@ -8,7 +8,7 @@
 	color: #000;
 }
 
-.pageHeading h1 {
+.Title h1 {
 	text-transform: capitalize;
 	font-size: 36px;
 	font-weight: 700;
@@ -16,7 +16,7 @@
 	margin-bottom: 18px;
 }
 
-.pageHeading span {
+.Title span {
 	font-size: 15px;
 	text-transform: uppercase;
 	letter-spacing: 1px;

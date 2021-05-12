@@ -5,7 +5,7 @@ import classes from './Details.module.css';
 
 const Details = (props) => {
     return (
-        <div className={classes.team}>
+        <div className={classes.details}>
             <Grid container>
                 <Grid item md={12}>
                     <div className={classes.sectionHeading}>
@@ -14,7 +14,7 @@ const Details = (props) => {
                     </div>
                 </Grid>
                 <Grid item md={4}>
-                    <div className={classes.teamItem}>
+                    <div className={classes.detailItem}>
                         <img src="assets/images/team_01.jpg" alt=""/>
                         <div className={classes.downContent}>
                             <h4>Sentadilla</h4>
@@ -25,7 +25,7 @@ const Details = (props) => {
                     </div>
                 </Grid>
                 <Grid item md={4}>
-                    <div className={classes.teamItem}>
+                    <div className={classes.detailItem}>
                         <img src="assets/images/team_02.jpg" alt=""/>
                         <div className={classes.downContent}>
                             <h4>Peso Muerto</h4>
@@ -36,7 +36,7 @@ const Details = (props) => {
                     </div>
                 </Grid>
                 <Grid item md={4}>
-                    <div className={classes.teamItem}>
+                    <div className={classes.detailItem}>
                         <img src="assets/images/team_03.jpg" alt=""/>
                         <div className={classes.downContent}>
                             <h4>Bench Press</h4>

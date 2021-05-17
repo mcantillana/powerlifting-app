@@ -1,0 +1,7 @@
+version: "3"
+
+services: 
+    powerlifting:
+        image: powerlifting:2.0
+        ports: 
+            - "80:80"

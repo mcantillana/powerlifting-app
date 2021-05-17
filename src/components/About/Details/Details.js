@@ -2,11 +2,15 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
 
+import SquatImage from '../../../assets/images/Squat.jpg';
+import BenchPressImage from '../../../assets/images/BenchPress.jpeg';
+import DeadliftImage from '../../../assets/images/Deadlift.jpg';
 
 const useStyles = makeStyles((theme) => ({
     sectionHeading: {
         textAlign: 'center',
 	    marginBottom: '80px',
+        width: '100%',
         '& h2': {
             fontSize: '36px',
             fontWeight: '600',
@@ -33,8 +37,11 @@ const useStyles = makeStyles((theme) => ({
     },
     detailItem: {
         '& img': {
-            width: '100%',
-	        overflow: 'hidden'
+            width: '90%',
+            height: '275px',
+	        overflow: 'hidden',
+            display: 'block',
+            margin: '0 auto'
         },
         [theme.breakpoints.up('xs')]: {
             marginBottom: '30px'
@@ -69,15 +76,14 @@ const Details = (props) => {
     return (
         <div className={classes.details}>
             <Grid container>
-                <Grid item md={12}>
-                    <div className={classes.sectionHeading}>
-                        <h2>Movimientos del <em>Powerlifting</em></h2>
-                        <span>Existen 3 movimientos dentro de esta disciplina</span>
-                    </div>
-                </Grid>
+                
+                <div className={classes.sectionHeading}>
+                    <h2>Movimientos del <em>Powerlifting</em></h2>
+                    <span>Existen 3 movimientos dentro de esta disciplina</span>
+                </div>
                 <Grid item md={4}>
                     <div className={classes.detailItem}>
-                        <img src="assets/images/team_01.jpg" alt=""/>
+                        <img src={SquatImage} alt=""/>
                         <div className={classes.downContent}>
                             <h4>Sentadilla</h4>
                             <span>Piernas</span>
@@ -88,7 +94,7 @@ const Details = (props) => {
                 </Grid>
                 <Grid item md={4}>
                     <div className={classes.detailItem}>
-                        <img src="assets/images/team_02.jpg" alt=""/>
+                        <img src={DeadliftImage} alt=""/>
                         <div className={classes.downContent}>
                             <h4>Peso Muerto</h4>
                             <span>Espalda/Lumbar</span>
@@ -99,7 +105,7 @@ const Details = (props) => {
                 </Grid>
                 <Grid item md={4}>
                     <div className={classes.detailItem}>
-                        <img src="assets/images/team_03.jpg" alt=""/>
+                        <img src={BenchPressImage} alt=""/>
                         <div className={classes.downContent}>
                             <h4>Bench Press</h4>
                             <span>Pectoral</span>

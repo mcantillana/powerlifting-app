@@ -2,29 +2,30 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
-/*import classes from './Title.module.css';*/
+import pageHeadingImage from '../../../assets/images/page-heading-background.jpg';
 
 const useStyles = makeStyles({
     Title: {
         textAlign: 'center',
-        /*background-image: url(../images/page-heading-bg.jpg);*/
+        backgroundImage: `url(${pageHeadingImage})`,
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         padding: '230px 0px 150px 0px',
-        color: '#000',
+        color: '#FFF',
+        margin: '-24px',
         '& h1': {
             textTransform: 'capitalize',
-            fontSize: '36px',
+            fontSize: '50px',
             fontWeight: '700',
             letterSpacing: '2px',
             marginBottom: '18px'
         },
         '& span': {
-            fontSize: '15px',
+            fontSize: '25px',
             textTransform: 'uppercase',
             letterSpacing: '1px',
-            color: '#000',
+            color: '#FFF',
             display: 'block'
         }
     }

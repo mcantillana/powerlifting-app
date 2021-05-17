@@ -2,6 +2,8 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import {makeStyles} from '@material-ui/core/styles';
 
+import PowerlifterImage from '../../../assets/images/Powerlifter.jpg';
+
 const useStyles = makeStyles((theme) => ({
     moreInfo: {
         marginTop: '140px',
@@ -52,9 +54,8 @@ const Information = (props) => {
     const classes = useStyles();
     return(
         <div className={[classes.moreInfo, classes.aboutInfo].join(" ")}>
-            <Grid container>
-                <Grid item md={12}>
-                    <div className={classes.moreInfoContent}>
+            <div className={classes.moreInfoContent}>
+                <Grid container>
                         <Grid item md={6}>
                             <div className={classes.rightContent}>
                                 <span>Disciplina de fuerza</span>
@@ -69,12 +70,11 @@ const Information = (props) => {
                         </Grid>
                         <Grid item md={6}>
                             <div className={classes.leftImage}>
-                                <img src="assets/images/about-image.jpg" alt=""/>
+                                <img src={PowerlifterImage} alt=""/>
                             </div>
                         </Grid>
-                    </div>
                 </Grid>
-            </Grid>
+            </div>
         </div>
     );
 }

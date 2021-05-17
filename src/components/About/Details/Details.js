@@ -1,9 +1,71 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import {makeStyles} from '@material-ui/core/styles';
 
-import classes from './Details.module.css';
 
+const useStyles = makeStyles((theme) => ({
+    sectionHeading: {
+        textAlign: 'center',
+	    marginBottom: '80px',
+        '& h2': {
+            fontSize: '36px',
+            fontWeight: '600',
+            color: '#1E1E1E'
+        },
+        '& em': {
+            fontStyle: 'normal',
+	        color: '#FF0000'
+        },
+        '& span': {
+            display: 'block',
+            marginTop: '15px',
+            textTransform: 'uppercase',
+            fontSize: '15px',
+            color: '#666',
+            letterSpacing: '1px'
+        }
+    },
+    details: {
+        backgroundColor: '#F7F7F7',
+        marginTop: '140px',
+        marginBottom: '-140px',
+        padding: '120px 0px',
+    },
+    detailItem: {
+        '& img': {
+            width: '100%',
+	        overflow: 'hidden'
+        },
+        [theme.breakpoints.up('xs')]: {
+            marginBottom: '30px'
+        },
+        [theme.breakpoints.up('sm')]: {
+            marginBottom: '0px'
+        },
+    },
+    downContent: {
+        backgroundColor: '#FFF',
+        padding: '30px',
+        '& h4': {
+            fontSize: '20px',
+            fontWeight: '700',
+            letterSpacing: '0.25px',
+            marginBottom: '10px'
+        },
+        '& span': {
+            color: '#FF0000',
+            fontWeight: '600',
+            fontSize: '14px',
+            display: 'block',
+            marginBottom: '15px'
+        },
+        '& p': {
+            marginBottom: '20px'
+        }
+    }
+}));
 const Details = (props) => {
+    const classes = useStyles();
     return (
         <div className={classes.details}>
             <Grid container>

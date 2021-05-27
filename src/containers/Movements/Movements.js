@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
         color: "white",
         borderRadius: "35px",
         margin: "20px auto",
-        width: "20%",
         textAlign: "center",
         padding: "50px 0px",
         position: "relative",
@@ -24,12 +23,9 @@ const useStyles = makeStyles((theme) => ({
         textTransform: "uppercase",
         display:"inline-block",
         cursor:"pointer",
-        [theme.breakpoints.up('md')]: {
-            width: '50%',
-        },
-        [theme.breakpoints.up('xs')]: {
-            width: '75%',
-        },
+        width:'75%',
+        fontSize: '23px',
+        fontWeight: 'bold',
         '&:active':{
             boxShadow: 'none',
             top: '5px'        

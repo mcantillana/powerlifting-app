@@ -1,0 +1,1 @@
+export const ADD_LIFT = 'ADD_LIFT';

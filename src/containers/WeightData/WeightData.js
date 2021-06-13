@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
+import {connect} from 'react-redux';
 
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
+import axios from '../../axios-records';
 import {updateObject, checkValidity} from '../../shared/utility';
+import * as actions from '../../store/actions/index';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 const useStyles = makeStyles({
     WeightData: {
@@ -56,6 +60,18 @@ const WeightData = (props) => {
         setFormIsValid(formIsValid);
     };
 
+    const liftHandler = (event) => {
+        event.preventDefault();
+        const formData = {};
+        for( let formElementIdentifier in weightForm) {
+            formData[formElementIdentifier] = weightForm[formElementIdentifier].value;
+        }
+        const liftData = {
+            weight: formData
+        };
+        props.onLiftWeight(liftData);
+    };
+
     const formElementsArray = [];
     for( let key  in weightForm) {
         formElementsArray.push({
@@ -64,7 +80,7 @@ const WeightData = (props) => {
         });
     }
     let form = (
-        <form>
+        <form onSubmit={liftHandler}>
             {formElementsArray.map(formElement => (
                 <Input
                     key={formElement.id} 
@@ -88,5 +104,10 @@ const WeightData = (props) => {
         </div>
     );
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        onLiftWeight: (liftData) => dispatch(actions.addLift(liftData))
+    }
+}
 
-export default WeightData;
+export default connect(null, mapDispatchToProps)(withErrorHandler(WeightData, axios));

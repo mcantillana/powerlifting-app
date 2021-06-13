@@ -7,11 +7,11 @@ import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
-import weightReducer from './store/reducers/weight';
+import liftReducer from './store/reducers/lift';
 import reportWebVitals from './reportWebVitals';
 
 const rootReducers = combineReducers({
-  weight: weightReducer
+  lift: liftReducer
 });
 
 const store = createStore(rootReducers, applyMiddleware(thunk));

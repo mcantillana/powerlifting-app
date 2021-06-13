@@ -14,6 +14,7 @@ const input = (props) => {
             inputElement = <TextField
                             error={errorVal}
                             {...props.elementConfig}
+                            className={classes[props.elementClass]}
                             value={props.value} 
                             onChange={props.changed} />;
             break;

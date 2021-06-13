@@ -2,3 +2,10 @@
     width: 100%;
     padding: 20px 0px 20px 0px;
 }
+.InputNumberLift {
+    width: 50%;
+}
+.InputNumberLift input{
+    font-size: 50px;
+    text-align: center;
+}

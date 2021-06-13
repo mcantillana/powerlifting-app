@@ -12,12 +12,15 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 const useStyles = makeStyles({
     WeightData: {
         margin: "20px auto",
-        width: "40%",
+        width: "60%",
         textAlign: "center",
         boxShadow: "0 2px 3px #CCC",
         border: "1px solid #EEE",
         padding: "10px",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
+        '& h4': {
+            fontSize: '40px'
+        }
     }
 });
 const WeightData = (props) => {
@@ -25,6 +28,7 @@ const WeightData = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'input',
+            elementClass: 'InputNumberLift',
             elementConfig: {
                 variant: "outlined",
                 label: "Peso",
@@ -86,6 +90,7 @@ const WeightData = (props) => {
                     key={formElement.id} 
                     label={formElement.config.label}
                     elementType={formElement.config.elementType} 
+                    elementClass={formElement.config.elementClass}
                     elementConfig={formElement.config.elementConfig}
                     value={formElement.config.value}
                     invalid={!formElement.config.valid}
@@ -94,7 +99,7 @@ const WeightData = (props) => {
                     changed={(event) => inputChangeHandler(event, formElement.id)} 
                 />
             ))}
-            <Button btnType="btnSuccess" disabled={!formIsValid}>Registrar</Button>
+            <Button btnType="btnLift" disabled={!formIsValid}>Registrar</Button>
         </form>
     );
     return (

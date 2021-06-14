@@ -30,10 +30,10 @@ const useStyles = makeStyles({
         }
     }
 })
-const Title = (props) => {
+const Header = (props) => {
     const classes = useStyles();
     return (
-        <div className={classes.Title}> {/* header-text */}
+        <div className={classes.Title}>
             <Grid container>
                 <Grid item xs={12}>
                     <h1>POWERLIFTING APP</h1>
@@ -44,4 +44,4 @@ const Title = (props) => {
     );
 }
 
-export default Title;
+export default Header;

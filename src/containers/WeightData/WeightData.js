@@ -28,7 +28,7 @@ const WeightData = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'input',
-            elementClass: 'InputNumberLift',
+            elementClass: 'I    nputNumberLift',
             elementConfig: {
                 variant: "outlined",
                 label: "Peso",
@@ -83,6 +83,8 @@ const WeightData = (props) => {
             config: weightForm[key]
         });
     }
+    console.log(formIsValid);
+    const btnStyle = (formIsValid)?"btnLift":"btnLiftDisabled";
     let form = (
         <form onSubmit={liftHandler}>
             {formElementsArray.map(formElement => (
@@ -99,7 +101,7 @@ const WeightData = (props) => {
                     changed={(event) => inputChangeHandler(event, formElement.id)} 
                 />
             ))}
-            <Button btnType="btnLift" disabled={!formIsValid}>Registrar</Button>
+            <Button btnType={btnStyle} disabled={!formIsValid}>Registrar</Button>
         </form>
     );
     return (

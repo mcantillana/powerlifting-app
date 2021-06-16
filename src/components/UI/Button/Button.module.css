@@ -20,11 +20,14 @@
     color: #FFF;
     border-radius: 10px;
 }
+.btnLiftDisabled {
+    font-size: 50px;
+    width: 45%;
+    color: #CCC;
+    cursor: not-allowed;
+    border-radius: 10px;
+}
 
 .Danger {
     color: #944317;
-}
-.Button:disabled{
-    color: #CCC;
-    cursor: not-allowed;
 }

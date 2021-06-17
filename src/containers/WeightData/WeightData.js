@@ -83,7 +83,6 @@ const WeightData = (props) => {
             config: weightForm[key]
         });
     }
-    console.log(formIsValid);
     const btnStyle = (formIsValid)?"btnLift":"btnLiftDisabled";
     let form = (
         <form onSubmit={liftHandler}>

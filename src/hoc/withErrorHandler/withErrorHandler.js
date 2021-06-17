@@ -35,7 +35,8 @@ const withErrorHandler = (WrappedComponent,  axios) => {
         const classes = useStyles();
         const [modalStyle] = React.useState(getModalStyle);
         const [error, clearError] = useHttpErrorHandler(axios);
-        
+        console.log(error);
+        console.log(clearError);
         return (
             <Aux>
                 <Modal

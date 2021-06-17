@@ -1,11 +1,22 @@
 import {React} from 'react';
 import { useParams } from 'react-router-dom';
+import {makeStyles} from '@material-ui/core/styles';
+
 import WeightData from '../../containers/WeightData/WeightData';
 
+const useStyles = makeStyles({
+    Movement: {
+        '& h1':{
+            textAlign:'center',
+            fontSize:'50px',
+        }
+    }
+});
 const Movement = (props) => {
+    const classes = useStyles();
     let { movement } = useParams();
     return (
-        <div>
+        <div className={classes.Movement}>
             <h1>{movement}</h1>
             <WeightData/>
         </div>

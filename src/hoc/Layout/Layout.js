@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import CToolbar from '../../components/Navigation/CToolbar/CToolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';

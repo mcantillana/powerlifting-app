@@ -1,19 +1,26 @@
 import React, {useState} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
+import {connect} from 'react-redux';
 
 import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
+import axios from '../../axios-records';
 import {updateObject, checkValidity} from '../../shared/utility';
+import * as actions from '../../store/actions/index';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 const useStyles = makeStyles({
     WeightData: {
         margin: "20px auto",
-        width: "40%",
+        width: "60%",
         textAlign: "center",
         boxShadow: "0 2px 3px #CCC",
         border: "1px solid #EEE",
         padding: "10px",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
+        '& h4': {
+            fontSize: '40px'
+        }
     }
 });
 const WeightData = (props) => {
@@ -21,6 +28,7 @@ const WeightData = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'input',
+            elementClass: 'I    nputNumberLift',
             elementConfig: {
                 variant: "outlined",
                 label: "Peso",
@@ -56,6 +64,18 @@ const WeightData = (props) => {
         setFormIsValid(formIsValid);
     };
 
+    const liftHandler = (event) => {
+        event.preventDefault();
+        const formData = {};
+        for( let formElementIdentifier in weightForm) {
+            formData[formElementIdentifier] = weightForm[formElementIdentifier].value;
+        }
+        const liftData = {
+            weight: formData
+        };
+        props.onLiftWeight(liftData);
+    };
+
     const formElementsArray = [];
     for( let key  in weightForm) {
         formElementsArray.push({
@@ -63,13 +83,15 @@ const WeightData = (props) => {
             config: weightForm[key]
         });
     }
+    const btnStyle = (formIsValid)?"btnLift":"btnLiftDisabled";
     let form = (
-        <form>
+        <form onSubmit={liftHandler}>
             {formElementsArray.map(formElement => (
                 <Input
                     key={formElement.id} 
                     label={formElement.config.label}
                     elementType={formElement.config.elementType} 
+                    elementClass={formElement.config.elementClass}
                     elementConfig={formElement.config.elementConfig}
                     value={formElement.config.value}
                     invalid={!formElement.config.valid}
@@ -78,7 +100,7 @@ const WeightData = (props) => {
                     changed={(event) => inputChangeHandler(event, formElement.id)} 
                 />
             ))}
-            <Button btnType="btnSuccess" disabled={!formIsValid}>Registrar</Button>
+            <Button btnType={btnStyle} disabled={!formIsValid}>Registrar</Button>
         </form>
     );
     return (
@@ -88,5 +110,10 @@ const WeightData = (props) => {
         </div>
     );
 }
+const mapDispatchToProps = dispatch => {
+    return {
+        onLiftWeight: (liftData) => dispatch(actions.addLift(liftData))
+    }
+}
 
-export default WeightData;
+export default connect(null, mapDispatchToProps)(withErrorHandler(WeightData, axios));

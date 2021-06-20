@@ -1,12 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Grid from "@material-ui/core/Grid";
-
 import {makeStyles} from '@material-ui/core/styles';
+
+import Aux from '../../hoc/Aux/Aux';
+import Header from '../../components/UI/Header/Header';
 
 const useStyles = makeStyles((theme) => ({
     MovGrid: {
         display: 'inherit',
+        marginTop: '50px'
     },
     Movement: {
         background: 'linear-gradient(90deg, rgba(70,24,24,1) 0%, rgba(255,6,6,1) 75%)',
@@ -41,22 +44,25 @@ const useStyles = makeStyles((theme) => ({
 const Home = (props) => {
     const classes = useStyles();
     return (
-        <Grid container 
-            direction="row"
-            justify="center"
-            alignItems="center">
-            <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
-                <Link className={classes.Movement} 
-                    to= "/history">
-                        Historial
-                </Link>
+        <Aux>
+            <Header/>
+            <Grid container 
+                direction="row"
+                justify="center"
+                alignItems="center">
+                <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
+                    <Link className={classes.Movement} 
+                        to= "/history">
+                            Historial
+                    </Link>
+                </Grid>
+                <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
+                    <Link className={classes.Movement} 
+                        to="/movements">Movimientos
+                    </Link>
+                </Grid>
             </Grid>
-            <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
-                <Link className={classes.Movement} 
-                    to="/movements">Movimientos
-                </Link>
-            </Grid>
-        </Grid>
+        </Aux>
     );
 }
 
